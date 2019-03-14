@@ -14,6 +14,8 @@ rotor_blade_AOA = 1.5;      // nastavení úhlu náběhu rotorového listu
 rotor_blade_length = 970;   // délka rotorového listu
 rotor_blade_depth = 50;     // hloubka rotorového listu
 rotor_height = 180;         // výška otočného kloubu rotoru nad hlavní trubkou vírníku (odhad)
+rotor_blades_count = 3; 
+
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
 pilon_wall_thickness = 4.2;  // Rozměr 2 v nákresu   
@@ -76,7 +78,7 @@ Servo_nut_diameter = 2.7;
 
 
 
-center_of_gravity_position = [main_pilon_position - tan(gliding_aggle)*rotor_height, 0, 0];
+//center_of_gravity_position = [main_pilon_position - tan(gliding_aggle)*rotor_height, 0, 0];
 
 
 ////podzvozek
