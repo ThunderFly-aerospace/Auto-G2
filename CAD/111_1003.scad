@@ -9,6 +9,8 @@ $fn = 100;
 rod_x_distance = 20;
 rod_y_distance = 30;
 
+sloupek_z = rod_x_distance/2;
+
 rod_size = 6.5;
 
 Bwall = 1.5; // wall around bearing
@@ -35,17 +37,19 @@ module Part3(){
                 cylinder(d = BaseBoldHeadDiameter + Bwall*2, h = BaseThickness);
         }
         
+        
+        // sloupky
         hull(){
-            translate([bearing_shaft_length/2, 0, -BaseThickness])
+            translate([sloupek_z, 0, -BaseThickness])
                 cube([rod_size, rod_size, 1]);
-            translate([bearing_shaft_length/2, rod_y_distance/2, rod_x_distance])
+            translate([sloupek_z, rod_y_distance/2, rod_x_distance])
                 cube([rod_size, rod_size, rod_size]);
         }
         
         hull(){
-            translate([bearing_shaft_length/2, -rod_size, -BaseThickness])
+            translate([sloupek_z, -rod_size, -BaseThickness])
                 cube([rod_size, rod_size, 1]);
-            translate([bearing_shaft_length/2, -rod_y_distance/2-rod_size, rod_x_distance])
+            translate([sloupek_z, -rod_y_distance/2-rod_size, rod_x_distance])
                 cube([rod_size, rod_size, rod_size]);
         }
     }
@@ -68,13 +72,14 @@ module Part3(){
         cylinder(d = BaseBoldHeadDiameter, h = BaseThickness+0.2);
     
     
-    translate([bearing_shaft_length/2 + rod_size/2, 0, rod_x_distance + rod_size/2])
+    // diry v sloupku pro pridelai kuloveho drzaku pro tahlo
+    translate([sloupek_z + rod_size/2, 0, rod_x_distance + rod_size/2])
         rotate([90, 0, 0])
             translate([0, 0, -100])
                 cylinder(d=M2_5_screw_diameter, h=200);
-    translate([bearing_shaft_length/2 + rod_size/2 - 5.2/2, rod_y_distance/2+1, rod_x_distance + rod_size/2 - 3])
+    translate([sloupek_z + rod_size/2 - 5.2/2, rod_y_distance/2+1, rod_x_distance + rod_size/2 - 3])
         cube([5.2, 2.5, 100]);
-    translate([bearing_shaft_length/2 + rod_size/2 - 5.2/2, -rod_y_distance/2-2.5-1, rod_x_distance + rod_size/2 - 3])
+    translate([sloupek_z + rod_size/2 - 5.2/2, -rod_y_distance/2-2.5-1, rod_x_distance + rod_size/2 - 3])
         cube([5.2, 2.5, 100]);
     
     }
