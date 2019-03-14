@@ -35,17 +35,20 @@ module body() {
 
 
 /// Part 1 with holes and incisions
-
-difference(){
-body();
-   // Screw holes
-    translate(CHT) rotate([0,90,0]) cylinder(r=RC, h=L1+2, center = true, $fn=fn);
-    rotate([0,90,0]) translate([DZ/2,DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
-    rotate([0,90,0]) translate([-DZ/2,DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
-    rotate([0,90,0]) translate([DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
-    rotate([0,90,0]) translate([-DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
-   
-   // Cutout in the middle wall
-    translate([0,0,H/2-HC/2]) cube([LC, L2+10, HC], center = true);
-   
+module Part1(){
+    difference(){
+    body();
+       // Screw holes
+        translate(CHT) rotate([0,90,0]) cylinder(r=RC, h=L1+2, center = true, $fn=fn);
+        rotate([0,90,0]) translate([DZ/2,DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
+        rotate([0,90,0]) translate([-DZ/2,DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
+        rotate([0,90,0]) translate([DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
+        rotate([0,90,0]) translate([-DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
+       
+       // Cutout in the middle wall
+        translate([0,0,H/2-HC/2]) cube([LC, L2+10, HC], center = true);
+       
+    }
 }
+
+Part1();

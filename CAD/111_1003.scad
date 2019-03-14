@@ -15,7 +15,7 @@ Bwall = 1.5; // wall around bearing
 
 BaseThickness = 5;
 BaseBoldDiameter = 3.2;
-BaseBoldHeadDiameter = 8.2;
+BaseBoldHeadDiameter = 7.2;
 BaseBoldHeadHeight = 3;
 
 
@@ -31,7 +31,7 @@ module Part3(){
         hull(){
             translate([0, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
                 cube([bearing_shaft_length + bearing_thickness, bearing_outer_diameter + Bwall*2, BaseThickness]);
-            translate([-10, 0, -BaseThickness])
+            translate([-5, 0, -BaseThickness])
                 cylinder(d = BaseBoldHeadDiameter + Bwall*2, h = BaseThickness);
         }
         
@@ -61,10 +61,10 @@ module Part3(){
         cylinder(d = bearing_outer_diameter, h = bearing_thickness);
     
     // Bolt holes
-    translate([-10, 0, -BaseThickness])
+    translate([-5, 0, -BaseThickness])
         cylinder(d = BaseBoldDiameter, h = BaseThickness+0.2);
     
-    translate([-10, 0, -BaseBoldHeadHeight])
+    translate([-5, 0, -BaseBoldHeadHeight])
         cylinder(d = BaseBoldHeadDiameter, h = BaseThickness+0.2);
     
     
