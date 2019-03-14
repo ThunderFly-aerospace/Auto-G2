@@ -6,10 +6,11 @@ include <parameters.scad>
 $fn = 100;
 
 
-rod_x_distance = 20;
+rod_x_distance = 30;
 rod_y_distance = 30;
 
 sloupek_z = -5;
+rod_x_base_len = 10;
 
 rod_size = 6.5;
 
@@ -40,14 +41,14 @@ module Part3(){
         
         // sloupky
         hull(){
-            translate([sloupek_z, 0, -BaseThickness])
+            translate([sloupek_z, 0, rod_x_base_len])
                 cube([rod_size, rod_size, 1]);
             translate([sloupek_z, rod_y_distance/2, rod_x_distance])
                 cube([rod_size, rod_size, rod_size]);
         }
         
         hull(){
-            translate([sloupek_z, -rod_size, -BaseThickness])
+            translate([sloupek_z, -rod_size, rod_x_base_len])
                 cube([rod_size, rod_size, 1]);
             translate([sloupek_z, -rod_y_distance/2-rod_size, rod_x_distance])
                 cube([rod_size, rod_size, rod_size]);
@@ -55,21 +56,21 @@ module Part3(){
     }
     
     
-   translate([-5, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
-        cylinder(d = bearing_outer_diameter, h = bearing_thickness + 5);
+   translate([0, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
+        cylinder(d = bearing_outer_diameter, h = bearing_thickness);
    
     translate([0, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
-        cylinder(d = 4, h = 100);
+        cylinder(d = 3.2, h = 100);
     
    translate([bearing_shaft_length, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
-        cylinder(d = bearing_outer_diameter, h = bearing_thickness + 10);
+        cylinder(d = bearing_outer_diameter, h = bearing_thickness);
     
     // Bolt holes
     translate([-5, 0, -BaseThickness])
         cylinder(d = BaseBoldDiameter, h = BaseThickness+0.2);
     
     translate([-5, 0, -BaseBoldHeadHeight])
-        cylinder(d = BaseBoldHeadDiameter, h = 100);
+        cylinder(d = BaseBoldHeadDiameter, h = BaseThickness+0.2);
     
     
     // diry v sloupku pro pridelai kuloveho drzaku pro tahlo

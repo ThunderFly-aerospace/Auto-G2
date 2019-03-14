@@ -14,20 +14,29 @@ RP = 3/2 + 0.2;  // Radius of the periphery screw holes
 DY = 14.5;  // Y-axis distance of the periphery screw holes
 DZ = 12;  // Z-axis distance of the periphery screw holes
 
-CHT = [0, 0, -4];  // Center hole translation
+CHT = [0, 0, -20];  // Center hole translation
 
 /// Parameters for the cutout
-LC = 10; // Length of the cutout
-HC = 5;  // Hight of the cutout
+LC = 0; // Length of the cutout
+HC = 0;  // Hight of the cutout
 
 fn = 100;  // default face number for cylinders
 /// Main object
 
 module body() {
     translate([0,-T1/2,0]) difference() {
-        cube([L1, L2, H], center= true);
+        union(){
+            cube([L1, L2, H], center= true);
+            hull(){
+                translate([0, T1/2, 0])
+                    cube([L1, L2-T1, H], center= true);
+                translate(CHT+[0, T1/2, 0]) rotate([0,90,0]) cylinder(r=RC+2, h=L1, center = true, $fn=fn);
+            
+            }
+            
+        }
         translate([0,T1,0])
-            cube([L1-2*T2, L2, H], center = true);
+            cube([L1-2*T2, L2, H*10], center = true);
     }
     
 }
