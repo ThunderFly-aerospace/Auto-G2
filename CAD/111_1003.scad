@@ -9,7 +9,8 @@ $fn = 100;
 rod_x_distance = 20;
 rod_y_distance = 30;
 
-sloupek_z = -5;
+sloupek_z = -8;
+bearing_z = -15;
 
 rod_size = 6.5;
 
@@ -25,14 +26,13 @@ module Part3(){
     difference(){
     union(){
         hull(){
-           translate([0, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
+           translate([bearing_z, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
                 cylinder(d = bearing_outer_diameter + Bwall*2, h = bearing_shaft_length + bearing_thickness);
-           translate([0, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
+           translate([bearing_z, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
                 cube([bearing_shaft_length + bearing_thickness, bearing_outer_diameter + Bwall*2, bearing_outer_diameter/2 + Bwall]);
         }
         hull(){
-            translate([0, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
-                cube([bearing_shaft_length + bearing_thickness, bearing_outer_diameter + Bwall*2, BaseThickness]);
+            
             translate([-5, 0, -BaseThickness])
                 cylinder(d = BaseBoldHeadDiameter + Bwall*2, h = BaseThickness);
         }
@@ -55,13 +55,13 @@ module Part3(){
     }
     
     
-   translate([-5, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
+   translate([bearing_z-5, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
         cylinder(d = bearing_outer_diameter, h = bearing_thickness + 5);
    
-    translate([0, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
+    translate([bearing_z, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
         cylinder(d = 4, h = 100);
     
-   translate([bearing_shaft_length, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
+   translate([bearing_z+bearing_shaft_length, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
         cylinder(d = bearing_outer_diameter, h = bearing_thickness + 10);
     
     // Bolt holes

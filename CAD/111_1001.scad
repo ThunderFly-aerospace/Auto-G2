@@ -3,14 +3,14 @@
 /// Main parameters
 
 L1 = 21.4;  // Length of the middle part
-T1 = 2;  // Thickness of the middle wall
-T2 = 3;  // Thickness of the side walls
+T1 = 1.5;  // Thickness of the middle wall
+T2 = 2;  // Thickness of the side walls
 H = 20;  // Hight of the part
 L2 = 28;  // Length of the side walls
 
 /// Parameters for holes
 RC = 3/2 + 0.2;  // Radius of the center screw holes
-RP = 3/2 + 0.2;  // Radius of the periphery screw holes
+RP = M2_5_screw_diameter/2;  // Radius of the periphery screw holes
 DY = 14.5;  // Y-axis distance of the periphery screw holes
 DZ = 12;  // Z-axis distance of the periphery screw holes
 
