@@ -14,13 +14,14 @@ rotor_blade_AOA = 1.5;      // nastavení úhlu náběhu rotorového listu
 rotor_blade_length = 970;   // délka rotorového listu
 rotor_blade_depth = 50;     // hloubka rotorového listu
 rotor_height = 180;         // výška otočného kloubu rotoru nad hlavní trubkou vírníku (odhad)
-rotor_blades_count = 3; 
+rotor_blades_count = 3;
+rotor_delta_angle = 12;
 
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
-pilon_wall_thickness = 4.2;  // Rozměr 2 v nákresu   
+pilon_wall_thickness = 4.2;  // Rozměr 2 v nákresu
 horizontal_screw_distance = 14.5;   // Rozměr 4 v nákresu
-vertical_screw_distance = 12;       // rozměr 5 v nkresu 
+vertical_screw_distance = 12;       // rozměr 5 v nkresu
 
 
 bearing_outer_diameter = 7.1;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
@@ -70,6 +71,13 @@ M2_5_nut_height = 2.3;
 M2_5_nut_diameter = 6;
 M2_5_nut_pocket = 5.1;
 
+//Screw diameter and nut for M2 [mm]
+M2_screw_diameter = 2.2;
+M2_nut_height = 1.8;
+M2_nut_diameter = 4.5;
+M2_nut_pocket = 3.95;
+
+
 
 //šroub servo
 Servo_screw = 1.5;
@@ -95,6 +103,3 @@ maximum_printable_size = 150;
 ////Pitotova trubice
 Pitot_tube_diameter = 4.02 + 1;
 Distance_hole_from_tube = 11.92;  //vzdálenost otvoru pro připevnění od samotné trubičky
-
-
-
