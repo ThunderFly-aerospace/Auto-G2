@@ -24,8 +24,8 @@ horizontal_screw_distance = 14.5;   // Rozměr 4 v nákresu
 vertical_screw_distance = 12;       // rozměr 5 v nkresu
 
 
-bearing_outer_diameter = 7.1;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
-bearing_thickness = 3.1;        // Rozměr B2 v nákresu
+bearing_outer_diameter = 6;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
+bearing_thickness = 7;        // Rozměr B2 v nákresu
 bearing_shaft_length = 19.5;    // Rozměr B3 v nákresu
 
 
