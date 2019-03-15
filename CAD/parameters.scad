@@ -14,7 +14,7 @@ rotor_blade_AOA = 1.5;      // nastavení úhlu náběhu rotorového listu
 rotor_blade_length = 970;   // délka rotorového listu
 rotor_blade_depth = 50;     // hloubka rotorového listu
 rotor_height = 180;         // výška otočného kloubu rotoru nad hlavní trubkou vírníku (odhad)
-rotor_blades_count = 3;
+rotor_blades_count = 2;
 rotor_delta_angle = 12;
 
 
