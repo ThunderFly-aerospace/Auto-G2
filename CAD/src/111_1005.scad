@@ -1,7 +1,7 @@
 include <../parameters.scad>;
 
 blade_screws_distance = (16.47+11.86)/2;
-screw_diameter = M3_screw_diameter;
+screw_diameter = M2_screw_diameter;
 move_index = 4+screw_diameter/2;
 
 points = [
