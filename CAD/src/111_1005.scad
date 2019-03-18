@@ -1,7 +1,8 @@
 include <../parameters.scad>;
 
+module 111_1005() {
 blade_screws_distance = (16.47+11.86)/2;
-screw_diameter = M3_screw_diameter;
+screw_diameter = M2_screw_diameter;
 move_index = 4+screw_diameter/2;
 
 points = [
@@ -29,3 +30,5 @@ difference() {
 	translate([move_index, 7, 0]) cylinder(d=screw_diameter, h=3, $fn=20);
 	translate([move_index+blade_screws_distance, 7, 0]) cylinder(d=screw_diameter, h=3, $fn=20);
 }
+}
+111_1005();
