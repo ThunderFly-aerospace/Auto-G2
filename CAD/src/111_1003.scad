@@ -7,7 +7,7 @@ $fn = 100;
 
 
 rod_x_distance = 20;
-rod_y_distance = 30;
+rod_y_distance = 65/2 + 13;
 
 sloupek_z = -8;
 bearing_z = -15;
@@ -80,11 +80,17 @@ module Part3(){
         rotate([90, 0, 0])
             translate([0, 0, -100])
                 cylinder(d = M2_screw_diameter, h=200);
-    translate([sloupek_z + rod_size/2 - 5.2/2, rod_y_distance/2+1, rod_x_distance + rod_size/2 - 3])
-        cube([5.2, 2.5, 100]);
-    translate([sloupek_z + rod_size/2 - 5.2/2, -rod_y_distance/2-2.5-1, rod_x_distance + rod_size/2 - 3])
-        cube([5.2, 2.5, 100]);
-
+    
+    translate([sloupek_z + rod_size/2, 0, rod_x_distance + rod_size/2])
+        rotate([90, 0, 0])
+            translate([0, 0, rod_y_distance/2-10])
+                cylinder(d = M2_nut_diameter, h=10, $fn=6);
+   
+    translate([sloupek_z + rod_size/2, 0, rod_x_distance + rod_size/2])
+        rotate([90, 0, 0])
+            translate([0, 0, -rod_y_distance/2])
+                cylinder(d = M2_nut_diameter, h=10, $fn=6);
+    
     }
 }
 

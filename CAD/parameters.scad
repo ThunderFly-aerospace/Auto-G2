@@ -23,6 +23,8 @@ pilon_wall_thickness = 4.2;  // Rozměr 2 v nákresu
 horizontal_screw_distance = 14.5;   // Rozměr 4 v nákresu
 vertical_screw_distance = 12;       // rozměr 5 v nkresu
 
+rotorhead_wall_thickness = 1.5; // sila tistenych dilu
+
 
 bearing_outer_diameter = 6;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
 bearing_thickness = 7;        // Rozměr B2 v nákresu
