@@ -30,7 +30,7 @@ module 888_1001()
 
         for (i = [1:rotor_blades_count]){
             rotate([0,0, i*angle_between_blades])
-                translate([0, 16 + blade_screws_distance/2, 0]) {
+                translate([0, 16.5 + blade_screws_distance/2, 0]) {
                     translate([0, blade_screws_distance/2, 0])
                         cylinder(d = M2_screw_diameter, h = 2* thickness, center = true, $fn = 20);
                     translate([0, -blade_screws_distance/2, 0])
