@@ -7,7 +7,7 @@ include <../parameters.scad>
 L1 = rotor_head_width;  // Length of the middle part
 T1 = rotorhead_wall_thickness;  // Thickness of the middle wall
 T2 = rotorhead_wall_thickness;  // Thickness of the side walls
-H = 20;  // Hight of the part
+H = 23;  // Hight of the part
 L2 = 28;  // Length of the side walls
 
 /// Parameters for holes
@@ -30,11 +30,21 @@ module body() {
     translate([0,-T1/2, 0]) difference() {
         union(){
             translate([0, 0, 3])
-                cube([L1, L2, H-6], center= true);
+                cube([L1, L2, H], center= true);
+            hull(){
+                translate([0, -3, 0])
+                    cube([L1, L2-6, 1], center= true);
+                translate(CHT+[0, T1/2, 0])
+                    rotate([0,90,0])
+                        cylinder(r=RC+2, h=L1, center = true, $fn=fn);
+
+            }
+            
+            
             hull(){
                 translate([0, 0, 0])
-                    cube([L1, L2, H/3*2], center= true);
-                translate(CHT+[0, T1/2, 0])
+                    cube([L1, L2, H-6], center= true);
+                translate(CHT+[0, 6, 7])
                     rotate([0,90,0])
                         cylinder(r=RC+2, h=L1, center = true, $fn=fn);
 

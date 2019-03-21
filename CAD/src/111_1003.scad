@@ -41,14 +41,14 @@ module Part3(){
 
         // sloupky
         hull(){
-            translate([sloupek_z, 0, -BaseThickness])
+            translate([sloupek_z, -2, -BaseThickness])
                 cube([rod_size, rod_size, 1]);
             translate([sloupek_z, rod_y_distance/2, rod_x_distance])
                 cube([rod_size, rod_size, rod_size]);
         }
 
         hull(){
-            translate([sloupek_z, -rod_size, -BaseThickness])
+            translate([sloupek_z, -rod_size+2, -BaseThickness])
                 cube([rod_size, rod_size, 1]);
             translate([sloupek_z, -rod_y_distance/2-rod_size, rod_x_distance])
                 cube([rod_size, rod_size, rod_size]);
