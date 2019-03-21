@@ -23,6 +23,7 @@ BaseBoldHeadHeight = 3;
 
 
 module Part3(){
+    translate([5, 0, -bearing_outer_diameter/2 - Bwall])
     difference(){
     union(){
         hull(){

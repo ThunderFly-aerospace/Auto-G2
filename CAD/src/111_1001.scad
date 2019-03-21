@@ -16,7 +16,8 @@ RP = M2_screw_diameter/2;  // Radius of the periphery screw holes
 DY = horizontal_screw_distance;  // Y-axis distance of the periphery screw holes
 DZ = vertical_screw_distance;  // Z-axis distance of the periphery screw holes
 
-CHT = [0, -horizontal_screw_distance/2, -20];  // Center hole translation
+shift =  - 15;
+CHT = [0, shift, -20];  // Center hole translation
 
 /// Parameters for the cutout
 LC = 0; // Length of the cutout
@@ -26,13 +27,16 @@ fn = 100;  // default face number for cylinders
 /// Main object
 
 module body() {
-    translate([0,-T1/2,0]) difference() {
+    translate([0,-T1/2, 0]) difference() {
         union(){
-            cube([L1, L2, H], center= true);
+            translate([0, 0, 3])
+                cube([L1, L2, H-6], center= true);
             hull(){
                 translate([0, 0, 0])
-                    cube([L1, L2, H/2], center= true);
-                translate(CHT+[0, T1/2, 0]) rotate([0,90,0]) cylinder(r=RC+2, h=L1, center = true, $fn=fn);
+                    cube([L1, L2, H/3*2], center= true);
+                translate(CHT+[0, T1/2, 0])
+                    rotate([0,90,0])
+                        cylinder(r=RC+2, h=L1, center = true, $fn=fn);
 
             }
 
@@ -41,7 +45,7 @@ module body() {
             cube([L1-2*T2, L2-T1, H*10], center = true);
         
         translate([0,0,-50])
-            cube([L1-2*T2, L2+5, 100], center = true);
+            cube([L1-2*T2, 50, 100], center = true);
     }
 
 }
@@ -61,7 +65,7 @@ module Part1(){
             rotate([0,90,0]) translate([-DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
 
            // Cutout in the middle wall
-            translate([0,0,H/2-HC/2]) cube([LC, L2+10, HC], center = true);
+            #translate([0,0,H/2-HC/2]) cube([LC, L2+10, HC], center = true);
 
         }
     }
