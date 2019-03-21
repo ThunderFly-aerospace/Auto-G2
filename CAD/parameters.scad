@@ -26,8 +26,8 @@ vertical_screw_distance = 12;       // rozměr 5 v nkresu
 rotorhead_wall_thickness = 1.5; // sila tistenych dilu
 
 
-bearing_outer_diameter = 6;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
-bearing_thickness = 7;        // Rozměr B2 v nákresu
+bearing_outer_diameter = 7.1;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
+bearing_thickness = 3.1;        // Rozměr B2 v nákresu
 bearing_shaft_length = 19.5;    // Rozměr B3 v nákresu
 
 
