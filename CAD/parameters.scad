@@ -22,6 +22,7 @@ rotor_head_width =  21.4;    //Rozměr 1 v nákresu
 pilon_wall_thickness = 4.2;  // Rozměr 2 v nákresu
 horizontal_screw_distance = 14.5;   // Rozměr 4 v nákresu
 vertical_screw_distance = 12;       // rozměr 5 v nkresu
+topscrew_distance_endofpilon = 5;
 
 rotorhead_wall_thickness = 2; // sila tistenych dilu
 

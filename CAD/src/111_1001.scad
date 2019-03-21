@@ -29,14 +29,14 @@ fn = 100;  // default face number for cylinders
 module body() {
     translate([0,-T1/2, 0]) difference() {
         union(){
-            translate([0, 0, 3])
+            translate([0, 0, 0])
                 cube([L1, L2, H], center= true);
             hull(){
-                translate([0, -3, 0])
-                    cube([L1, L2-6, 1], center= true);
+                translate([0, -L2/4, -vertical_screw_distance/2 - topscrew_distance_endofpilon])
+                    cube([L1, L2/2, 0.1], center= true);
                 translate(CHT+[0, T1/2, 0])
                     rotate([0,90,0])
-                        cylinder(r=RC+2, h=L1, center = true, $fn=fn);
+                        cylinder(r=RC+2, h=L1+4, center = true, $fn=fn);
 
             }
             
@@ -68,7 +68,7 @@ module Part1(){
         difference(){
         body();
            // Screw holes
-            translate(CHT) rotate([0,90,0]) cylinder(r=RC, h=L1+2, center = true, $fn=fn);
+            translate(CHT) rotate([0,90,0]) cylinder(r=RC, h=L1+10, center = true, $fn=fn);
             rotate([0,90,0]) translate([DZ/2,DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
             rotate([0,90,0]) translate([-DZ/2,DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
             rotate([0,90,0]) translate([DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
