@@ -6,13 +6,10 @@ include <../parameters.scad>
 $fn = 100;
 
 
-rod_x_distance = 20;
-rod_y_distance = 60;
-
 sloupek_z = -8;
 bearing_z = -15;
 
-rod_size = 6.5;
+rod_size = 7.3;
 
 Bwall = 1.5; // wall around bearing
 
@@ -20,6 +17,10 @@ BaseThickness = 5;
 BaseBoldDiameter = M3_screw_diameter;
 BaseBoldHeadDiameter = 7.2;
 BaseBoldHeadHeight = 3;
+
+
+rod_x_distance = 50 - BaseThickness;
+rod_y_distance = 60;
 
 
 module Part3(){
