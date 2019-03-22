@@ -7,7 +7,7 @@ $fn = 100;
 
 
 rod_x_distance = 20;
-rod_y_distance = 65/2 + 13;
+rod_y_distance = 60/2 + 13;
 
 sloupek_z = -8;
 bearing_z = -15;
@@ -43,15 +43,15 @@ module Part3(){
         hull(){
             translate([sloupek_z, -2, -BaseThickness])
                 cube([rod_size, rod_size, 1]);
-            translate([sloupek_z, rod_y_distance/2, rod_x_distance])
-                cube([rod_size, rod_size, rod_size]);
+            translate([sloupek_z + rod_size/2, rod_y_distance/2, rod_x_distance + rod_size/2])
+                cube([rod_size, rod_size/2, rod_size],center = true);
         }
 
         hull(){
             translate([sloupek_z, -rod_size+2, -BaseThickness])
                 cube([rod_size, rod_size, 1]);
-            translate([sloupek_z, -rod_y_distance/2-rod_size, rod_x_distance])
-                cube([rod_size, rod_size, rod_size]);
+            translate([sloupek_z + rod_size/2, -rod_y_distance/2-rod_size, rod_x_distance + rod_size/2])
+                cube([rod_size, rod_size/2,  rod_size ],center = true);
         }
     }
 
@@ -84,13 +84,13 @@ module Part3(){
     
     translate([sloupek_z + rod_size/2, 0, rod_x_distance + rod_size/2])
         rotate([90, 0, 0])
-            translate([0, 0, rod_y_distance/2-10])
-                cylinder(d = M2_nut_diameter, h=10, $fn=6);
+            translate([0, 0, rod_y_distance/2])
+                cylinder(d = M2_nut_diameter, h=10, $fn=6, center = true);
    
     translate([sloupek_z + rod_size/2, 0, rod_x_distance + rod_size/2])
         rotate([90, 0, 0])
             translate([0, 0, -rod_y_distance/2])
-                cylinder(d = M2_nut_diameter, h=10, $fn=6);
+                %cylinder(d = M2_nut_diameter, h=10, $fn=6, center = true);
     
     }
 }
