@@ -7,7 +7,7 @@ $fn = 100;
 
 
 rod_x_distance = 20;
-rod_y_distance = 60;
+rod_y_distance = 59;
 
 sloupek_z = -8;
 bearing_z = -15;
