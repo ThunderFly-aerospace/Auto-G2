@@ -5,91 +5,103 @@
 include <../parameters.scad>
 $fn = 100;
 
+space = 2; // parametr z dilu 1002, rika tloustku steny
 
-sloupek_z = -8;
-bearing_z = -15;
+bearing_z = -bearing_shaft_length/2;
+bearing_shaft_shift = 20;
 
-rod_size = 7.3;
+rod_size = 8; // delka hrany sloupku
 
 Bwall = 1.5; // wall around bearing
 
-BaseThickness = 5;
+BaseThickness = 1;
 BaseBoldDiameter = M3_screw_diameter;
-BaseBoldHeadDiameter = 7.2;
-BaseBoldHeadHeight = 3;
+BaseBoldHeadDiameter = M3_nut_diameter + 0.5;
+BaseBoldHeadHeight = M3_nut_height;
 
 
-rod_x_distance = 50 - BaseThickness;
+// nastaveni delek tahel
+rod_x_dist = 30;
 rod_y_distance = 60;
 
 
+rod_x_distance = rod_x_dist - rod_size/2 - BaseThickness - M3_screw_diameter/2 - space;
+
+
 module Part3(){
-    translate([5, 0, -bearing_outer_diameter/2 - Bwall])
+    
+    // Vypocet uhlu
+    rotor_plane_space = 6; // Vzdalenost od loziska k rovine rotoru (je to predevsim vzdalenost dvou maticek)
+    echo("Uhel mezi osou rotoru a spojnici rotoru k ose pitch je:");
+    echo(atan((rod_size/2 + BaseThickness + M3_screw_diameter/2 + space)/(bearing_shaft_shift + bearing_shaft_length + rotor_plane_space)));
+    
+    
+    
+    translate([0, 0, -bearing_outer_diameter/2 - Bwall])
     difference(){
     union(){
         hull(){
-           translate([bearing_z, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
-                cylinder(d = bearing_outer_diameter + Bwall*2, h = bearing_shaft_length);
-           translate([bearing_z, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
-                cube([bearing_shaft_length, bearing_outer_diameter + Bwall*2, bearing_outer_diameter/2 + Bwall]);
+           translate([-rod_size/2, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
+                cylinder(d = bearing_outer_diameter + Bwall*2, h = bearing_shaft_length + bearing_shaft_shift + rod_size/2);
+           translate([-rod_size/2, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
+                cube([bearing_shaft_length + bearing_shaft_shift + rod_size/2, bearing_outer_diameter + Bwall*2, bearing_outer_diameter/2 + Bwall]);
         }
-        hull(){
-
-            translate([-5, 0, -BaseThickness])
-                cylinder(d = BaseBoldHeadDiameter + Bwall*2, h = BaseThickness);
-        }
+        //hull(){
+        //    translate([0, 0, -BaseThickness])
+        //        cylinder(d = BaseBoldHeadDiameter + Bwall*2, h = BaseThickness);
+        //}
 
 
         // sloupky
         hull(){
-            translate([sloupek_z, -2, -BaseThickness])
-                cube([rod_size, rod_size, 1]);
+            translate([0, 0, -BaseThickness+1])
+                cube([rod_size, rod_size, 1], center = true);
             
-            translate([sloupek_z + rod_size/2, rod_y_distance/2 - rod_size/4 , rod_x_distance + rod_size/2])
+            translate([0, rod_y_distance/2 - rod_size/4 , rod_x_distance + rod_size/2])
                 cube([rod_size, rod_size/2, rod_size],center = true);
         }
 
         hull(){
-            translate([sloupek_z, -rod_size+2, -BaseThickness])
-                cube([rod_size, rod_size, 1]);
-            translate([sloupek_z + rod_size/2, -rod_y_distance/2 + rod_size/4, rod_x_distance + rod_size/2])
+            translate([0, 0, -BaseThickness+1])
+                cube([rod_size, rod_size, 1],center = true);
+            translate([0 , -rod_y_distance/2 + rod_size/4, rod_x_distance + rod_size/2])
                 cube([rod_size, rod_size/2, rod_size],center = true);
         }
     }
 
 
-   translate([bearing_z-5, 0, bearing_outer_diameter/2 + Bwall])
+   translate([bearing_thickness + bearing_shaft_shift - 0.1 - 100, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
-            cylinder(d = bearing_outer_diameter, h = bearing_thickness + 5);
+            cylinder(d = bearing_outer_diameter, h = bearing_thickness + 100);
 
-    translate([bearing_z, 0, bearing_outer_diameter/2 + Bwall])
+   translate([-50, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
             cylinder(d = 4, h = 100);
 
-   translate([bearing_z+bearing_shaft_length - bearing_thickness, 0, bearing_outer_diameter/2 + Bwall])
+   #translate([bearing_shaft_shift + bearing_shaft_length - bearing_thickness, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
-            cylinder(d = bearing_outer_diameter, h = bearing_thickness + 10);
+            cylinder(d = bearing_outer_diameter, h = bearing_thickness + 0.1 + 100);
 
     // Bolt holes
-    translate([-5, 0, -BaseThickness])
-        cylinder(d = BaseBoldDiameter, h = BaseThickness+0.2);
+    translate([0, 0, -BaseThickness])
+        cylinder(d = BaseBoldDiameter, h = BaseThickness+10);
 
-    translate([-5, 0, -BaseBoldHeadHeight])
+    translate([0, 0, 2])
         cylinder(d = BaseBoldHeadDiameter, h = 100);
 
 
     // diry v sloupku pro pridelai kuloveho drzaku pro tahlo
-    translate([sloupek_z + rod_size/2, 0, rod_x_distance + rod_size/2])
+    translate([0, 0, rod_x_distance + rod_size/2])
         rotate([90, 0, 0])
             translate([0, 0, -100])
                 cylinder(d = M2_screw_diameter, h=200);
     
-    translate([sloupek_z + rod_size/2, 0, rod_x_distance + rod_size/2])
+    translate([0, 0, rod_x_distance + rod_size/2])
         rotate([90, 0, 0])
             translate([0, 0, rod_y_distance/2 - 10 - Bwall])
                 cylinder(d = M2_nut_diameter, h=10, $fn=6);
    
-    translate([sloupek_z + rod_size/2, 0, rod_x_distance + rod_size/2])
+    translate([0, 0, rod_x_distance + rod_size/2])
         rotate([90, 0, 0])
             translate([0, 0, -rod_y_distance/2 + Bwall])
                 cylinder(d = M2_nut_diameter, h=10, $fn=6);

@@ -29,7 +29,8 @@ rotorhead_wall_thickness = 2; // sila tistenych dilu
 
 bearing_outer_diameter = 7.1;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
 bearing_thickness = 3.1;        // Rozměr B2 v nákresu
-bearing_shaft_length = 19.5;    // Rozměr B3 v nákresu
+//bearing_shaft_length = 19.5;    // Rozměr B3 v nákresu, Originalni hodnota 19.5
+bearing_shaft_length = 21;    // Rozměr B3 v nákresu
 
 
 // nastavení parametrů motoru
