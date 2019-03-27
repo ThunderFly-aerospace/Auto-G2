@@ -10,10 +10,13 @@ space = 1; // parametr z dilu 1002, rika tloustku steny
 bearing_z = -bearing_shaft_length/2;
 
 // Uhel 15 stupnu
-bearing_shaft_shift = 0;
+//bearing_shaft_shift = 0;
 
 // Uhel 10.02 stupnu
 //bearing_shaft_shift = 16;
+
+
+rotor_shaft_angle = 10;
 
 rod_size = 8; // delka hrany sloupku
 
@@ -37,9 +40,9 @@ module Part3(){
     
     // Vypocet uhlu
     rotor_plane_space = 6; // Vzdalenost od loziska k rovine rotoru (je to predevsim vzdalenost dvou maticek)
-    echo("Uhel mezi osou rotoru a spojnici rotoru k ose pitch je:");
-    echo(atan((rod_size/2 + BaseThickness + M3_screw_diameter/2 + space)/(bearing_shaft_shift + bearing_shaft_length + rotor_plane_space)));
     
+    bearing_shaft_shift = ((rod_size/2 + BaseThickness + M3_screw_diameter/2 + space)/tan(rotor_shaft_angle)) - bearing_shaft_length - rotor_plane_space;
+    echo(bearing_shaft_shift);
     
     
     translate([0, 0, -bearing_outer_diameter/2 - Bwall])
