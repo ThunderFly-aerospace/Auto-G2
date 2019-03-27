@@ -7,19 +7,9 @@ $fn = 100;
 
 space = 1; // parametr z dilu 1002, rika tloustku steny
 
-bearing_z = -bearing_shaft_length/2;
-
-// Uhel 15 stupnu
-//bearing_shaft_shift = 0;
-
-// Uhel 10.02 stupnu
-bearing_shaft_shift = 16;
-
-
 rotor_shaft_angle = 10;
 
 rod_size = 8; // delka hrany sloupku
-
 Bwall = 1.5; // wall around bearing
 
 BaseThickness = 1;
