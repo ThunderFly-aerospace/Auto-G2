@@ -5,10 +5,15 @@
 include <../parameters.scad>
 $fn = 100;
 
-space = 2; // parametr z dilu 1002, rika tloustku steny
+space = 1; // parametr z dilu 1002, rika tloustku steny
 
 bearing_z = -bearing_shaft_length/2;
-bearing_shaft_shift = 20;
+
+// Uhel 15 stupnu
+bearing_shaft_shift = 0;
+
+// Uhel 10.02 stupnu
+//bearing_shaft_shift = 16;
 
 rod_size = 8; // delka hrany sloupku
 
@@ -54,7 +59,7 @@ module Part3(){
 
         // sloupky
         hull(){
-            translate([0, 0, -BaseThickness+1])
+            translate([0, 0, -BaseThickness+3])
                 cube([rod_size, rod_size, 1], center = true);
             
             translate([0, rod_y_distance/2 - rod_size/4 , rod_x_distance + rod_size/2])
@@ -62,7 +67,7 @@ module Part3(){
         }
 
         hull(){
-            translate([0, 0, -BaseThickness+1])
+            translate([0, 0, -BaseThickness+3])
                 cube([rod_size, rod_size, 1],center = true);
             translate([0 , -rod_y_distance/2 + rod_size/4, rod_x_distance + rod_size/2])
                 cube([rod_size, rod_size/2, rod_size],center = true);
@@ -78,7 +83,7 @@ module Part3(){
         rotate([0, 90, 0])
             cylinder(d = 4, h = 100);
 
-   #translate([bearing_shaft_shift + bearing_shaft_length - bearing_thickness, 0, bearing_outer_diameter/2 + Bwall])
+   translate([bearing_shaft_shift + bearing_shaft_length - bearing_thickness, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
             cylinder(d = bearing_outer_diameter, h = bearing_thickness + 0.1 + 100);
 

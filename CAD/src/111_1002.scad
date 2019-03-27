@@ -5,7 +5,7 @@ include <../parameters.scad>
 length = rotor_head_width-2*rotorhead_wall_thickness-0.15; // Length of the part
 axis_diameter = M3_screw_diameter;
 space = 1; // Axis hole distance
-wall = 2;
+wall = 1;
 
 add = 5; // prodlouzeni osy ve smeru roll osy
 
