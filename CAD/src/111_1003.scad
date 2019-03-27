@@ -13,7 +13,7 @@ bearing_z = -bearing_shaft_length/2;
 //bearing_shaft_shift = 0;
 
 // Uhel 10.02 stupnu
-//bearing_shaft_shift = 16;
+bearing_shaft_shift = 16;
 
 
 rotor_shaft_angle = 10;
