@@ -7,7 +7,7 @@ $fn = 100;
 
 space = 1; // parametr z dilu 1002, rika tloustku steny
 
-rotor_shaft_angle = 10;
+rotor_shaft_angle = 12;
 
 rod_size = 8; // delka hrany sloupku
 Bwall = 1.5; // wall around bearing
