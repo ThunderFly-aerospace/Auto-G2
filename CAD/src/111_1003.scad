@@ -7,7 +7,7 @@ $fn = 100;
 
 space = 1; // parametr z dilu 1002, rika tloustku steny
 
-rotor_shaft_angle = 12;
+rotor_shaft_angle = 10;
 
 rod_size = 8; // delka hrany sloupku
 Bwall = 1.5; // wall around bearing
@@ -20,9 +20,8 @@ BaseBoldHeadHeight = M3_nut_height;
 
 // nastaveni delek tahel
 rod_x_dist = 30;
-rod_y_distance = 60;
 
-
+rod_y_distance = rod_x_dist*2 - 3*2; // 3 je delka kuloveho cepu
 rod_x_distance = rod_x_dist - rod_size/2 - BaseThickness - M3_screw_diameter/2 - space;
 
 
