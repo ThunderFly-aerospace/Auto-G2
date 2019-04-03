@@ -28,7 +28,7 @@ rod_x_distance = rod_x_dist - rod_size/2 - BaseThickness - M3_screw_diameter/2 -
 module Part3(){
     
     // Vypocet uhlu
-    rotor_plane_space = 6; // Vzdalenost od loziska k rovine rotoru (je to predevsim vzdalenost dvou maticek)
+    rotor_plane_space = 7; // Vzdalenost od loziska k rovine rotoru (je to predevsim vzdalenost dvou maticek)
     
     bearing_shaft_shift = ((rod_size/2 + BaseThickness + M3_screw_diameter/2 + space)/tan(rotor_shaft_angle)) - bearing_shaft_length - rotor_plane_space;
     echo(bearing_shaft_shift);
@@ -43,30 +43,27 @@ module Part3(){
            translate([-rod_size/2, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
                 cube([bearing_shaft_length + bearing_shaft_shift + rod_size/2, bearing_outer_diameter + Bwall*2, bearing_outer_diameter/2 + Bwall]);
         }
-        //hull(){
-        //    translate([0, 0, -BaseThickness])
-        //        cylinder(d = BaseBoldHeadDiameter + Bwall*2, h = BaseThickness);
-        //}
 
 
         // sloupky
         hull(){
-            translate([0, 0, -BaseThickness+3])
-                cube([rod_size, rod_size, 1], center = true);
+            translate([4, 0, -BaseThickness+1])
+                cube([rod_size+8, rod_size, 1], center = true);
             
             translate([0, rod_y_distance/2 - rod_size/4 , rod_x_distance + rod_size/2])
                 cube([rod_size, rod_size/2, rod_size],center = true);
         }
 
         hull(){
-            translate([0, 0, -BaseThickness+3])
-                cube([rod_size, rod_size, 1],center = true);
+            translate([4, 0, -BaseThickness+1])
+                cube([rod_size+8, rod_size, 1],center = true);
             translate([0 , -rod_y_distance/2 + rod_size/4, rod_x_distance + rod_size/2])
                 cube([rod_size, rod_size/2, rod_size],center = true);
         }
     }
 
 
+  // Zapusteni pro loziska
    translate([bearing_thickness + bearing_shaft_shift - 0.1 - 100, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
             cylinder(d = bearing_outer_diameter, h = bearing_thickness + 100);
@@ -79,12 +76,16 @@ module Part3(){
         rotate([0, 90, 0])
             cylinder(d = bearing_outer_diameter, h = bearing_thickness + 0.1 + 100);
 
-    // Bolt holes
+   // Dira pro ROLL osu.
     translate([0, 0, -BaseThickness])
-        cylinder(d = BaseBoldDiameter, h = BaseThickness+10);
+        cylinder(d = M3_screw_diameter, h = BaseThickness+10);
 
     translate([0, 0, 2])
-        cylinder(d = BaseBoldHeadDiameter, h = 100);
+        cylinder(d = M3_nut_diameter, h = 100);
+    
+    // podlozka pod hlavu sroubu
+    translate([0, 0, 1.5])
+        cylinder(d = 9, h = 5);
 
 
     // diry v sloupku pro pridelai kuloveho drzaku pro tahlo
