@@ -12,7 +12,7 @@ rotor_shaft_angle = 10;
 rod_size = 8; // delka hrany sloupku
 Bwall = 1.5; // wall around bearing
 
-BaseThickness = 1;
+BaseThickness = 0;
 BaseBoldDiameter = M3_screw_diameter;
 BaseBoldHeadDiameter = M3_nut_diameter + 0.5;
 BaseBoldHeadHeight = M3_nut_height;
@@ -42,12 +42,15 @@ module Part3(){
                 cylinder(d = bearing_outer_diameter + Bwall*2, h = bearing_shaft_length + bearing_shaft_shift + rod_size/2);
            translate([-rod_size/2, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
                 cube([bearing_shaft_length + bearing_shaft_shift + rod_size/2, bearing_outer_diameter + Bwall*2, bearing_outer_diameter/2 + Bwall]);
+            
+           translate([-rod_size/2, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
+                cube([bearing_outer_diameter + Bwall*2, bearing_outer_diameter + Bwall*2,bearing_outer_diameter + Bwall*2+3]);
         }
 
 
         // sloupky
         hull(){
-            translate([4, 0, -BaseThickness+1])
+            translate([4, 0, -BaseThickness+2])
                 cube([rod_size+8, rod_size, 1], center = true);
             
             translate([0, rod_y_distance/2 - rod_size/4 , rod_x_distance + rod_size/2])
@@ -55,7 +58,7 @@ module Part3(){
         }
 
         hull(){
-            translate([4, 0, -BaseThickness+1])
+            translate([4, 0, -BaseThickness+2])
                 cube([rod_size+8, rod_size, 1],center = true);
             translate([0 , -rod_y_distance/2 + rod_size/4, rod_x_distance + rod_size/2])
                 cube([rod_size, rod_size/2, rod_size],center = true);
@@ -77,14 +80,14 @@ module Part3(){
             cylinder(d = bearing_outer_diameter, h = bearing_thickness + 0.1 + 100);
 
    // Dira pro ROLL osu.
-    translate([0, 0, -BaseThickness])
-        cylinder(d = M3_screw_diameter, h = BaseThickness+10);
+    translate([0, 0, -10])
+        cylinder(d = M3_screw_diameter, h = 100);
 
-    translate([0, 0, 2])
-        cylinder(d = M3_nut_diameter, h = 100);
+    //translate([0, 0, bearing_outer_diameter + Bwall*2])
+    //    cylinder(d = M3_nut_diameter, h = 100);
     
     // podlozka pod hlavu sroubu
-    translate([0, 0, 1.5])
+    translate([0, 0, bearing_outer_diameter + Bwall*2+1])
         cylinder(d = 9, h = 5);
 
 
