@@ -73,6 +73,12 @@ module Part1(){
             rotate([0,90,0]) translate([-DZ/2,DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
             rotate([0,90,0]) translate([DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
             rotate([0,90,0]) translate([-DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
+            
+           // Zapusteni pro matky
+            rotate([0,90,0]) translate([DZ/2,DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
+            rotate([0,90,0]) translate([-DZ/2,DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
+            rotate([0,90,0]) translate([DZ/2,-DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
+            rotate([0,90,0]) translate([-DZ/2,-DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
 
            // Cutout in the middle wall
             #translate([0,0,H/2-HC/2]) cube([LC, L2+10, HC], center = true);
