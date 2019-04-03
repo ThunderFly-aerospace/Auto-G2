@@ -40,8 +40,8 @@ module Part3(){
         hull(){
            translate([-rod_size/2, 0, bearing_outer_diameter/2 + Bwall]) rotate([0, 90, 0])
                 cylinder(d = bearing_outer_diameter + Bwall*2, h = bearing_shaft_length + bearing_shaft_shift + rod_size/2);
-           translate([-rod_size/2, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
-                cube([bearing_shaft_length + bearing_shaft_shift + rod_size/2, bearing_outer_diameter + Bwall*2, bearing_outer_diameter/2 + Bwall]);
+    //       translate([-rod_size/2, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
+    //            cube([bearing_shaft_length + bearing_shaft_shift + rod_size/2, bearing_outer_diameter + Bwall*2, bearing_outer_diameter/2 + Bwall]);
             
            translate([-rod_size/2, -bearing_outer_diameter/2 - Bwall, -BaseThickness])
                 cube([bearing_outer_diameter + Bwall*2, bearing_outer_diameter + Bwall*2,bearing_outer_diameter + Bwall*2+3]);
