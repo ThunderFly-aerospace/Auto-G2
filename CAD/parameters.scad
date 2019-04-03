@@ -27,10 +27,10 @@ topscrew_distance_endofpilon = 5;
 rotorhead_wall_thickness = 2; // sila tistenych dilu
 
 
-bearing_outer_diameter = 10.1;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
-bearing_thickness = 3.1;        // Rozměr B2 v nákresu
+bearing_outer_diameter = 10.2;    // Rozměr B1 v nákresu s přídavkem na toleranci otvoru
+bearing_thickness = 4;        // Rozměr B2 v nákresu
 //bearing_shaft_length = 19.5;    // Rozměr B3 v nákresu, Originalni hodnota 19.5
-bearing_shaft_length = 21+2;    // Rozměr B3 v nákresu
+bearing_shaft_length = 20;    // Rozměr B3 v nákresu
 
 
 // nastavení parametrů motoru

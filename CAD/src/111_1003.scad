@@ -50,16 +50,16 @@ module Part3(){
 
         // sloupky
         hull(){
-            translate([4, 0, -BaseThickness+2])
-                cube([rod_size+8, rod_size, 1], center = true);
+            translate([0, 0, -BaseThickness+2])
+                cube([rod_size, rod_size, 1], center = true);
             
             translate([0, rod_y_distance/2 - rod_size/4 , rod_x_distance + rod_size/2])
                 cube([rod_size, rod_size/2, rod_size],center = true);
         }
 
         hull(){
-            translate([4, 0, -BaseThickness+2])
-                cube([rod_size+8, rod_size, 1],center = true);
+            translate([0, 0, -BaseThickness+2])
+                cube([rod_size, rod_size, 1],center = true);
             translate([0 , -rod_y_distance/2 + rod_size/4, rod_x_distance + rod_size/2])
                 cube([rod_size, rod_size/2, rod_size],center = true);
         }
@@ -67,9 +67,9 @@ module Part3(){
 
 
   // Zapusteni pro loziska
-   translate([bearing_thickness + bearing_shaft_shift - 0.1 - 100, 0, bearing_outer_diameter/2 + Bwall])
+   translate([bearing_shaft_shift + bearing_shaft_length - bearing_shaft_length + bearing_thickness - 100, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
-            cylinder(d = bearing_outer_diameter, h = bearing_thickness + 100);
+            cylinder(d = bearing_outer_diameter, h = 100);
 
    translate([-50, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
@@ -110,5 +110,7 @@ module Part3(){
     }
 }
 
-
+difference(){
 Part3();
+//translate([-50, 0, 0]) cube(100);
+}
