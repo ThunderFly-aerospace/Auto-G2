@@ -22,6 +22,8 @@ module 111_1004(){
             }
             
             cylinder(d = M3_screw_diameter, h = 3* thickness, center = true, $fn = 20);
+            translate([0,0,thickness - M3_nut_height/4])
+                cylinder(d = M3_nut_diameter, h = M3_nut_height, center = true, $fn = 6);
 
             for (i = [1:rotor_blades_count]){
                 rotate([0, 0, i*angle_between_blades + angle_between_blades/2 + 180])
