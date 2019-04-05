@@ -1,6 +1,6 @@
 
 global_clearance = 0.5;
-
+layer_height = 0.3; 
 
 //Main tube diameter - hole [mm]
 main_tube_outer_diameter = 25.4;
