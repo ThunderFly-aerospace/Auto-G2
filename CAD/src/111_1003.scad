@@ -17,6 +17,7 @@ BaseBoldDiameter = M3_screw_diameter;
 BaseBoldHeadDiameter = M3_nut_diameter + 0.5;
 BaseBoldHeadHeight = M3_nut_height;
 
+bearing_inner_diameter = 7;
 
 // nastaveni delek tahel
 rod_x_dist = 30;
@@ -71,9 +72,9 @@ module Part3(){
         rotate([0, 90, 0])
             cylinder(d = bearing_outer_diameter, h = 100);
 
-   translate([-50, 0, bearing_outer_diameter/2 + Bwall])
+   translate([bearing_shaft_shift + bearing_shaft_length - bearing_shaft_length + bearing_thickness + layer_thickness, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
-            cylinder(d = 4, h = 100);
+            cylinder(d = bearing_inner_diameter, h = 100);
 
    translate([bearing_shaft_shift + bearing_shaft_length - bearing_thickness, 0, bearing_outer_diameter/2 + Bwall])
         rotate([0, 90, 0])
