@@ -19,10 +19,6 @@ DZ = vertical_screw_distance;  // Z-axis distance of the periphery screw holes
 shift =  - 15;
 CHT = [0, shift, -20];  // Center hole translation
 
-/// Parameters for the cutout
-LC = 0; // Length of the cutout
-HC = 0;  // Hight of the cutout
-
 fn = 100;  // default face number for cylinders
 /// Main object
 
@@ -51,8 +47,8 @@ module body() {
             }
 
         }
-        translate([0,0,0])
-            cube([L1-2*T2, L2-T1, H*10], center = true);
+
+        cube([L1-2*T2, L2-2*T1, H*10], center = true);
         
         translate([0,0,-50])
             cube([L1-2*T2, 50, 100], center = true);
@@ -79,10 +75,6 @@ module Part1(){
             rotate([0,90,0]) translate([-DZ/2,DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
             rotate([0,90,0]) translate([DZ/2,-DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
             rotate([0,90,0]) translate([-DZ/2,-DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
-
-           // Cutout in the middle wall
-            #translate([0,0,H/2-HC/2]) cube([LC, L2+10, HC], center = true);
-
         }
     }
 }
