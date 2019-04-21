@@ -12,8 +12,8 @@ main_tube_inner_diameter = 23.05;
 gliding_aggle = 14;         // tenhle úhel by se zřejmě v budoucnu měl počítat z požadované klouzavosti.
 
 rotor_blade_AOA = 1.5;      // nastavení úhlu náběhu rotorového listu
-rotor_blade_length = 970;   // délka rotorového listu
-rotor_blade_depth = 50;     // hloubka rotorového listu
+rotor_blade_length = 400;   // délka rotorového listu
+rotor_blade_depth = 45.5;     // hloubka rotorového listu
 rotor_height = 180;         // výška otočného kloubu rotoru nad hlavní trubkou vírníku (odhad)
 rotor_blades_count = 2;
 rotor_delta_angle = 12;
@@ -46,6 +46,14 @@ engine_shatf_hole_diameter = 13;
 
 // screw length step - minimum difference in length between two types of screws
 basic_screw_length = 5;
+
+//Screw diameter and nut for M6 [mm]
+M6_screw_diameter=6.5;
+M6_head_diameter = 10+0.5;
+M6_head_height = 6;
+M6_nut_height = 4.9;
+M6_nut_diameter = 11.8;
+M6_nut_pocket = 10.4;
 
 //Screw diameter and nut for M5 [mm]
 M5_screw_diameter=5.5;
