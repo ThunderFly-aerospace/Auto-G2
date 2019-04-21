@@ -318,7 +318,7 @@ translate([0,0,44.5])
 
 *translate([0, 0, 45]) {
     rotate([0, 0, 45])
-    #cube([45.5, 200, 10], center=true);
+    cube([45.5, 200, 10], center=true);
 }
 
 888_1009_base();
