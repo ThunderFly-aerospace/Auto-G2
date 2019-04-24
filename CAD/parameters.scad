@@ -17,6 +17,7 @@ rotor_blade_depth = 45.5;     // hloubka rotorového listu
 rotor_height = 180;         // výška otočného kloubu rotoru nad hlavní trubkou vírníku (odhad)
 rotor_blades_count = 2;
 rotor_delta_angle = 12;
+rotor_blade_thickness = 5.1;
 
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu

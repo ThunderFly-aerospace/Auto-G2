@@ -74,11 +74,11 @@ module 888_1009_base(){		//základna
 
 module 888_1009_shape_A(x_size = 130, y_size = 60, z_size = 8){
 
-    airfoil_NACA = 0016;    // typ použitého profilu
-    airfoil_depth = 50; // hloubka profilu
+//    airfoil_NACA = 0016;    // typ použitého profilu
+//    airfoil_depth = 50; // hloubka profilu
     length = 200;       // celková délka polotovaru
     bridge_thickness = 0.6;  // tloušťka spojení mezi rotorovým listem a rámečkem
-    airfoil_thickness = (airfoil_NACA/100) * (airfoil_depth + bridge_thickness); // vypočtená maximální tloušťka profilu
+//    airfoil_thickness = (airfoil_NACA/100) * (airfoil_depth + bridge_thickness); // vypočtená maximální tloušťka profilu
 
     render()
     difference(){
@@ -114,11 +114,11 @@ module 888_1009_shape_A(x_size = 130, y_size = 60, z_size = 8){
 
 module 888_1009_shape_B(x_size = 130, y_size = 60, z_size = 8){
 
-    airfoil_NACA = 0016;    // typ použitého profilu
-    airfoil_depth = 50; // hloubka profilu
+//    airfoil_NACA = 0016;    // typ použitého profilu
+//    airfoil_depth = 50; // hloubka profilu
     length = 200;       // celková délka polotovaru
     bridge_thickness = 0.6;  // tloušťka spojení mezi rotorovým listem a rámečkem
-    airfoil_thickness = (airfoil_NACA/100) * (airfoil_depth + bridge_thickness); // vypočtená maximální tloušťka profilu
+//    airfoil_thickness = (airfoil_NACA/100) * (airfoil_depth + bridge_thickness); // vypočtená maximální tloušťka profilu
 
     render()
     difference(){
@@ -216,15 +216,15 @@ render()
         			color([0.5,0,0])
         				cube([wall_thickness*(1.5+2),y_size*3/5,wall_thickness*3]);
         		
-        		translate([x_size/2 - thickness, 0, thickness + 4])
+        		translate([x_size/2 - thickness, 0, thickness + rotor_blade_thickness/2])
         			rotate([-16,0,0])
-                        translate([0, 0, -thickness - 4])
+                        translate([0, 0, -thickness - rotor_blade_thickness/2])
         				    cube([thickness*1.5, y_size,y_size/2]);
 
                 mirror([0,1,0])
-                    translate([x_size/2 - thickness, 0, thickness + 4])
+                    translate([x_size/2 - thickness, 0, thickness + rotor_blade_thickness/2])
                         rotate([-16,0,0])
-                            translate([0, 0, -thickness - 4])
+                            translate([0, 0, -thickness - rotor_blade_thickness/2])
                                 cube([thickness*1.5, y_size,50]);
 
         		// zůžení přesahující kostky
@@ -292,36 +292,22 @@ module 888_1009_cradle(x_size = 180, y_size = 80, z_size = 20, thickness = 10){	
 
     mirror([1,0,0])
         888_1009_cradle_half();
-
-
-    /*translate([0,0,thickness+4])
-        %cube([160, 100, 8],center = true);
-
-    translate([160/2 + 7.5, 0, 3*thickness+7.5])
-        %cube([15, 55, 15],center = true);
-    */
-
 }
 
 
 translate([0,0,30])
 		888_1009_cradle();
+
 translate([0,0,44.5])
 {
-    888_1009_shape_A();
-    888_1009_shape_B();
+    888_1009_shape_A(z_size = rotor_blade_thickness);
+    888_1009_shape_B(z_size = rotor_blade_thickness);
 
     translate([0,0,5])
         888_1009_scale();
 }
 
-
-*translate([0, 0, 45]) {
-    rotate([0, 0, 45])
-    cube([45.5, 200, 10], center=true);
-}
-
-888_1009_base();
+//888_1009_base();
 
 
 
