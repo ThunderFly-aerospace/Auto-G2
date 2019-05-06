@@ -19,6 +19,23 @@ rotor_blades_count = 2;
 rotor_delta_angle = 12;
 rotor_blade_thickness = 5.1;
 
+rotor_blade_naca = 2412;
+
+blade_mount_width = 17;
+blade_mount_length = 30;
+blade_mount_thickness = 3;
+blade_mount_screw_distance = (16.47+11.86)/2;
+blade_mount_screw_offset = 5; // distance of first screw from rotor end
+
+blade_transition_length = 50; // length of blade transition
+blade_shell_thickness = 0.4*2;
+blade_shell_thickness_inner = 0.4;
+blade_infill_distance = 25;
+
+blade_rod_diameter = 2.3;
+blade_rod_position = [10, 0.5, 0];
+blade_rod_position2 = [25, 0.5, 0];
+
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
 pilon_wall_thickness = 4.2;  // Rozměr 2 v nákresu
@@ -91,6 +108,8 @@ M2_nut_height = 1.8;
 M2_nut_diameter = 4.8;
 M2_nut_pocket = 3.95;
 
+
+blade_mount_screw = M2_screw_diameter;
 
 
 //šroub servo
