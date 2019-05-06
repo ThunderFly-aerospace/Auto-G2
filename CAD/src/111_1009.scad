@@ -76,9 +76,9 @@ module 111_1009(){
 
         // diry na vyztuhu
         translate(blade_rod_position)
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length+0.1, $fn = 50);
+            cylinder(d = blade_rod_diameter, h = rotor_blade_length + blade_mount_length - 1, $fn = 50);
         translate(blade_rod_position2)
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length+0.1, $fn = 50);
+            cylinder(d = blade_rod_diameter, h = rotor_blade_length + blade_mount_length - 1, $fn = 50);
     }
 }
 
@@ -112,23 +112,10 @@ module 111_1009_print(part = 1){
 
         // diry na vyztuhu
         translate(blade_rod_position)
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length+0.1, $fn = 50);
+            cylinder(d = blade_rod_diameter, h = rotor_blade_length + blade_mount_length - 1, $fn = 50);
         translate(blade_rod_position2)
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length+0.1, $fn = 50);
+            cylinder(d = blade_rod_diameter, h = rotor_blade_length + blade_mount_length - 1, $fn = 50);
     }
 }
 
 111_1009();
-//base_airfoil();
-
-
-        /* rotate([0,0,90])
-            difference()
-            {
-                linear_extrude(height = 150)
-                polygon(points = airfoil_data(naca=0030, L = 140));
-            } */
-
-            //hollow_airfoil(naca = rotor_blade_naca, L = 150, N = draft ? 50 : 100, h = 150, open = false); //dutý profil
-
-//hollow_airfoil(naca = 0007, L = 95, N = draft ? 50 : 100, h = 152, open = true, wall_thickness);
