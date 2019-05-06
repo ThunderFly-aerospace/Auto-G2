@@ -2,44 +2,20 @@
 
 /// Rotor blade
 
+rotor_blade_depth_naca_resolution = draft ? 100 : 200;
+
 include <../parameters.scad>
 use <lib/naca4.scad>
 
-module base_airfoil(h = rotor_blade_length){
-    intersection(){
-        render(){
-            airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N=250, h = h, open = false);
-        }
-        blade_outer_shape();
-    }
-}
 
-module blade_outer_shape(){
-    hull(){
-        translate([0, -10, 0])
-            cube([rotor_blade_depth, 20, blade_shell_thickness]);
-        translate([0, -10, rotor_blade_length - blade_transition_length])
-            cube([rotor_blade_depth, 20, blade_shell_thickness_inner]);
-        translate([0, -10, rotor_blade_length])
-            cube([blade_mount_width, 20, blade_shell_thickness]);
-    }
+
+module base_airfoil(h = rotor_blade_length){
+    airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution, h = h - blade_transition_length, open = false);
 }
 
 module blade_shell(){
-    intersection(){
-        minkowski(){
-            difference(){
-                translate([-25, -25, -0.05])
-                    cube([rotor_blade_depth + 50, 50, rotor_blade_length+10]);
-                translate([0, 0, blade_shell_thickness])
-                    base_airfoil();
-            }
-            sphere(d = blade_shell_thickness * 2);
-        }
-        base_airfoil(h = rotor_blade_length+1);
-    }
+    hollow_airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution, h = rotor_blade_length - blade_transition_length, open = false);
 }
-
 
 
 module blade_infill(){
@@ -75,14 +51,12 @@ module blade_mount(){
         }
 
         hull(){
-            intersection(){
-                base_airfoil();
-                translate([0, -10, rotor_blade_length-10])
-                    cube([rotor_blade_depth, 20, 10]);
-            }
-            translate([rotor_blade_depth/4, 0, rotor_blade_length])
-                translate([-blade_mount_width/2, -blade_mount_thickness/2, -1])
-                    cube([blade_mount_width, blade_mount_thickness, blade_mount_length/4]);
+            translate([0, 0, rotor_blade_length - blade_transition_length])
+                linear_extrude(height = 0.1)
+                    polygon(points = airfoil_data(naca=rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution));
+
+            #translate([rotor_blade_depth/4 -blade_mount_width/2, -blade_mount_thickness/2, rotor_blade_length])
+                cube([blade_mount_width, blade_mount_thickness, blade_mount_length/4]);
 
         }
 }
@@ -94,15 +68,10 @@ module 111_1009(){
             blade_infill();
             blade_shell();
             blade_mount();
-            intersection(){
-                union(){
-                    translate(blade_rod_position)
-                        cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
-                    translate(blade_rod_position2)
-                        cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
-                }
-                blade_outer_shape();
-            }
+            translate(blade_rod_position)
+                cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
+            translate(blade_rod_position2)
+                cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
         }
 
         // diry na vyztuhu
@@ -123,41 +92,43 @@ module 111_1009_print(part = 1){
     difference(){
         union(){
             intersection(){
-                union(){
-                    blade_infill();
-                }
+                blade_infill();
                 translate([0, -25, bottom + blade_infill_overlap])
                     cube([rotor_blade_depth, 50, part_height]);
             }
             intersection(){
-                    union(){
+                union(){
                     blade_shell();
                     blade_mount();
-                    intersection(){
-                        union(){
-                            translate(blade_rod_position)
-                                cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
-                            translate(blade_rod_position2)
-                                cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
-                        }
-                        blade_outer_shape();
-                    }
+                    translate(blade_rod_position)
+                        cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
+                    translate(blade_rod_position2)
+                        cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
                 }
                 translate([0, -25, bottom])
                     cube([rotor_blade_depth, 50, part_height]);
             }
-
         }
 
         // diry na vyztuhu
         translate(blade_rod_position)
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length+1, $fn = 50);
+            cylinder(d = blade_rod_diameter, h = rotor_blade_length+0.1, $fn = 50);
         translate(blade_rod_position2)
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length+1, $fn = 50);
+            cylinder(d = blade_rod_diameter, h = rotor_blade_length+0.1, $fn = 50);
     }
 }
 
 111_1009();
+//base_airfoil();
 
 
-//blade_shell();
+        /* rotate([0,0,90])
+            difference()
+            {
+                linear_extrude(height = 150)
+                polygon(points = airfoil_data(naca=0030, L = 140));
+            } */
+
+            //hollow_airfoil(naca = rotor_blade_naca, L = 150, N = draft ? 50 : 100, h = 150, open = false); //dutý profil
+
+//hollow_airfoil(naca = 0007, L = 95, N = draft ? 50 : 100, h = 152, open = true, wall_thickness);
