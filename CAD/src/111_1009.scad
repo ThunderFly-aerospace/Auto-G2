@@ -8,7 +8,7 @@ use <lib/naca4.scad>
 module base_airfoil(h = rotor_blade_length){
     intersection(){
         render(){
-            airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N=50, h = h, open = false);
+            airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N=250, h = h, open = false);
         }
         blade_outer_shape();
     }
