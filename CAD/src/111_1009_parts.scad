@@ -1,5 +1,5 @@
-include<../../parameters.scad>
-use <../111_1009.scad>
+include<../parameters.scad>
+use <111_1009.scad>
 
 
 translate([0, -20, 0])
