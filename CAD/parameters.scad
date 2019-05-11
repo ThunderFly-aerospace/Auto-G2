@@ -25,11 +25,11 @@ rotor_blade_parts_count = 3;
 
 blade_mount_width = 17;
 blade_mount_length = 30;
+blade_transition_length = 10; // length of blade transition
 blade_mount_thickness = 4;
 blade_mount_screw_distance = (16.47+11.86)/2;
 blade_mount_screw_offset = 5; // distance of first screw from rotor end
 
-blade_transition_length = 20; // length of blade transition
 blade_shell_thickness = 0.9;
 blade_shell_thickness_inner = 0.6 + 0.05;
 blade_infill_distance = 25;
