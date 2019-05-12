@@ -23,14 +23,16 @@ module blade_infill(){
         intersection(){
             base_airfoil();
             union(){
-            for (i=[0 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
-                translate([0, -25, i])
-                    rotate([0, 60, 0])
-                        cube([rotor_blade_depth*2, 50, blade_shell_thickness_inner]);
-                translate([rotor_blade_depth, -25, i])
-                    rotate([0, 90+30, 0])
-                        cube([rotor_blade_depth*2, 50, blade_shell_thickness_inner]);
-            }}
+                //cylinder(d=10, h=rotor_blade_length);
+                for (i=[0 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
+                    translate([0, -25, i])
+                        rotate([0, 60, 0])
+                            cube([rotor_blade_depth*2, 50, blade_shell_thickness_inner]);
+                    translate([rotor_blade_depth, -25, i])
+                        rotate([0, 90+30, 0])
+                            cube([rotor_blade_depth*2, 50, blade_shell_thickness_inner]);
+                }
+            }
         }
         blade_shell();
     }
@@ -48,8 +50,8 @@ module blade_mount(){
                         linear_extrude(height = 0.1)
                             polygon(points = airfoil_data(naca=rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution));
 
-                    translate([-blade_mount_width/2, -blade_mount_thickness/2, blade_transition_length])
-                        cube([blade_mount_width, blade_mount_thickness, blade_mount_length/4]);
+                    translate([-blade_mount_width/2, -blade_mount_thickness/2, -1])
+                        cube([blade_mount_width, blade_mount_thickness, blade_mount_length/2]);
                 }
             }
 
@@ -59,6 +61,7 @@ module blade_mount(){
             translate([0, 20, blade_mount_length -blade_mount_screw_offset -blade_mount_screw_distance])
                 rotate([90, 0, 0])
                     cylinder(d = blade_mount_screw, h=40, $fn = 50);
+
         }
 
         /* hull(){
@@ -78,17 +81,21 @@ module 111_1009(){
             blade_infill();
             blade_shell();
             blade_mount();
-            translate(blade_rod_position)
-                cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
-            translate(blade_rod_position2)
-                cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
+            if (rotor_blade_rod){
+                translate(blade_rod_position)
+                    cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
+                translate(blade_rod_position2)
+                    cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
+            }
         }
 
         // diry na vyztuhu
-        translate(blade_rod_position - [0, 0, 0.5])
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length + 1, $fn = 50);
-        translate(blade_rod_position2 - [0, 0, 0.5])
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length + 1, $fn = 50);
+        if (rotor_blade_rod){
+            translate(blade_rod_position - [0, 0, 0.5])
+                cylinder(d = blade_rod_diameter, h = rotor_blade_length + 1, $fn = 50);
+            translate(blade_rod_position2 - [0, 0, 0.5])
+                cylinder(d = blade_rod_diameter, h = rotor_blade_length + 1, $fn = 50);
+        }
     }
 }
 
@@ -110,10 +117,12 @@ module 111_1009_print(part = 1){
                 union(){
                     blade_shell();
                     blade_mount();
-                    translate(blade_rod_position)
-                        cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
-                    translate(blade_rod_position2)
-                        cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
+                    if (rotor_blade_rod){
+                        translate(blade_rod_position)
+                            cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
+                        translate(blade_rod_position2)
+                            cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
+                    }
                 }
                 translate([0, -25, bottom])
                     cube([rotor_blade_depth, 50, part_height]);
@@ -121,15 +130,17 @@ module 111_1009_print(part = 1){
         }
 
         // diry na vyztuhu
-        translate(blade_rod_position - [0, 0, 0.5])
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length + blade_mount_length + 1, $fn = 50);
-        translate(blade_rod_position2 - [0, 0, 0.5])
-            cylinder(d = blade_rod_diameter, h = rotor_blade_length + blade_mount_length + 1, $fn = 50);
+        if (rotor_blade_rod){
+            translate(blade_rod_position - [0, 0, 0.5])
+                cylinder(d = blade_rod_diameter, h = rotor_blade_length + blade_mount_length + 1, $fn = 50);
+            translate(blade_rod_position2 - [0, 0, 0.5])
+                cylinder(d = blade_rod_diameter, h = rotor_blade_length + blade_mount_length + 1, $fn = 50);
 
-        translate(blade_rod_position + [0, 0, part_height + bottom])
-            cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length + blade_mount_length - 1, $fn = 50);
-        translate(blade_rod_position2 + [0, 0, part_height + bottom])
-            cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length + blade_mount_length - 1, $fn = 50);
+            translate(blade_rod_position + [0, 0, part_height + bottom])
+                cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length + blade_mount_length - 1, $fn = 50);
+            translate(blade_rod_position2 + [0, 0, part_height + bottom])
+                cylinder(d = blade_rod_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length + blade_mount_length - 1, $fn = 50);
+        }
     }
 }
 

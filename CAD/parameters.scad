@@ -12,20 +12,30 @@ main_tube_inner_diameter = 23.05;
 gliding_aggle = 14;         // tenhle úhel by se zřejmě v budoucnu měl počítat z požadované klouzavosti.
 
 rotor_blade_AOA = 1.5;      // nastavení úhlu náběhu rotorového listu
-rotor_blade_length = 400;   // délka rotorového listu
+
+// Rotor Auto-G2
+rotor_blade_rod = true;  // generovat diru pro uhlikove tycky
+rotor_blade_length = 400 - 15;   // délka rotorového listu
 rotor_blade_depth = 45.5;     // hloubka rotorového listu
+blade_mount_length = 30;
+
+// Testovaci maly rotor
+//rotor_blade_rod = false;
+//rotor_blade_length = 145;   // délka rotorového listu
+//rotor_blade_depth = 45.5;     // hloubka rotorového listu
+//blade_mount_length = 20;
+
 rotor_height = 180;         // výška otočného kloubu rotoru nad hlavní trubkou vírníku (odhad)
 rotor_blades_count = 2;
 rotor_delta_angle = 12;
 rotor_blade_thickness = 5.1;
 
 rotor_blade_naca = 2412;
-
 rotor_blade_parts_count = 3;
 
-blade_mount_width = 17;
-blade_mount_length = 30;
 blade_transition_length = 10; // length of blade transition
+
+blade_mount_width = 17;
 blade_mount_thickness = 4;
 blade_mount_screw_distance = (16.47+11.86)/2;
 blade_mount_screw_offset = 5; // distance of first screw from rotor end
