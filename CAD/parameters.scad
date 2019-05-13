@@ -24,12 +24,15 @@ blade_mount_thickness = 4;
 blade_mount_screw_offset = 5; // distance of first screw from rotor end
 
 // Testovaci maly rotor
-rotor_blade_rod = false;
-rotor_blade_length = 145;   // délka rotorového listu
-rotor_blade_depth = 45.5 * (145/385);     // hloubka rotorového listu
-blade_mount_length = 20;
-blade_mount_width = 10;
-blade_mount_thickness = 4;
+
+        /*
+        rotor_blade_rod = false;
+        rotor_blade_length = 145;   // délka rotorového listu
+        rotor_blade_depth = 45.5 * (145/385);     // hloubka rotorového listu
+        blade_mount_length = 20;
+        blade_mount_width = 10;
+        blade_mount_thickness = 4;
+        */
 
 // konec parametru pro testovaci maly rotor
 
@@ -50,9 +53,10 @@ blade_shell_thickness_inner = 0.6 + 0.05;
 blade_infill_distance = 25;
 blade_infill_overlap = 2;
 
-blade_rod_diameter = 2.25;
+blade_rod_diameter = 2.28;
 blade_rod_position = [rotor_blade_depth/4 + 5, 0, 0];
 blade_rod_position2 = [rotor_blade_depth/4 - 5, 0, 0];
+blade_rod_position2 = [3.1, 0.27, 0];
 
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
