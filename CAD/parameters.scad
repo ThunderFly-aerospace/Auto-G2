@@ -55,7 +55,7 @@ blade_infill_overlap = 2;
 
 blade_rod_diameter = 2.28;
 blade_rod_position = [rotor_blade_depth/4 + 5, 0, 0];
-blade_rod_position2 = [rotor_blade_depth/4 - 5, 0, 0];
+//blade_rod_position2 = [rotor_blade_depth/4 - 5, 0, 0];
 blade_rod_position2 = [3.1, 0.27, 0];
 
 
