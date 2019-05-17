@@ -75,5 +75,5 @@ module 888_1003(){
 
 difference(){
 888_1003();
-translate([-50, 0, 0]) cube(100);
+//translate([-50, 0, 0]) cube(100);
 }
