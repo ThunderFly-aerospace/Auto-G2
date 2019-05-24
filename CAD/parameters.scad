@@ -106,7 +106,7 @@ M2_5_nut_diameter = 6;
 M2_5_nut_pocket = 5.1;
 
 //Screw diameter and nut for M2 [mm]
-M2_screw_diameter = 2.2;
+M2_screw_diameter = 2.0;
 M2_nut_height = 1.8;
 M2_nut_diameter = 4.8;
 M2_nut_pocket = 3.95;
