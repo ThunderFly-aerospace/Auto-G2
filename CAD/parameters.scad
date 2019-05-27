@@ -139,3 +139,10 @@ maximum_printable_size = 150;
 ////Pitotova trubice
 Pitot_tube_diameter = 4.02 + 1;
 Distance_hole_from_tube = 11.92;  //vzdálenost otvoru pro připevnění od samotné trubičky
+
+
+////Vlečné zařízení
+tow_ring_diameter = 20;
+tow_ring_thickness = 5;
+tow_ring_groove = 2;
+tow_ring_hole_diameter = M3_screw_diameter;
