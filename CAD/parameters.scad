@@ -48,15 +48,17 @@ blade_transition_length = 10; // length of blade transition
 
 blade_mount_screw_distance = (16.47+11.86)/2;
 
-blade_shell_thickness = 0.9;
-blade_shell_thickness_inner = 0.6 + 0.05;
+blade_shell_thickness = 0.82;
+blade_shell_thickness_inner = 0.5;
 blade_infill_distance = 25;
 blade_infill_overlap = 2;
 
-blade_rod_diameter = 2.28;
-blade_rod_position = [rotor_blade_depth/4 + 5, 0, 0];
-blade_rod_position2 = [rotor_blade_depth/4 - 5, 0, 0];
-blade_rod_position2 = [3.1, 0.27, 0];
+blade_rod_diameter = 2.8;
+blade_rod2_diameter = 2.3;
+//blade_rod_position = [rotor_blade_depth/4 + 5, 0, 0];
+//blade_rod_position2 = [rotor_blade_depth/4 - 5, 0, 0];
+blade_rod_position = [15, 0, 0];
+blade_rod_position2 = [4, 0.3, 0];
 
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
@@ -131,7 +133,7 @@ M2_nut_diameter = 4.8;
 M2_nut_pocket = 3.95;
 
 
-blade_mount_screw = M2_screw_diameter;
+blade_mount_screw = M3_screw_diameter;
 
 
 //šroub servo

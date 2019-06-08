@@ -2,7 +2,7 @@ include <../parameters.scad>;
 
 module 111_1006() {
 blade_screws_distance = (16.47+11.86)/2;
-screw_diameter = M2_screw_diameter;
+screw_diameter = M3_screw_diameter;
 move_index = 4+screw_diameter/2;
 
 points = [
@@ -28,13 +28,13 @@ faces = [
 difference() {
 	union() {
 		polyhedron(points, faces);
-		translate([move_index, 7, 1.97]) cylinder(d=M2_nut_diameter+2.5, h=M2_nut_height, $fn=40	);
-		translate([move_index+blade_screws_distance, 7, 1.97]) cylinder(d=M2_nut_diameter+2.5, h=M2_nut_height, $fn=40);
+		translate([move_index, 7, 1.97]) cylinder(d=M3_nut_diameter+2.5, h=M3_nut_height, $fn=40	);
+		translate([move_index+blade_screws_distance, 7, 1.97]) cylinder(d=M3_nut_diameter+2.5, h=M3_nut_height, $fn=40);
 	}
 	translate([move_index, 7, 0]) cylinder(d=screw_diameter, h=2, $fn=20);
 	translate([move_index+blade_screws_distance, 7, 0]) cylinder(d=screw_diameter, h=2, $fn=20);
-	translate([move_index, 7, 1.97]) cylinder(d=M2_nut_diameter, h=M2_nut_height, $fn=6);
-	translate([move_index+blade_screws_distance, 7, 1.97]) cylinder(d=M2_nut_diameter, h=M2_nut_height, $fn=6);
+	translate([move_index, 7, 1.97]) cylinder(d=M3_nut_diameter, h=M3_nut_height, $fn=6);
+	translate([move_index+blade_screws_distance, 7, 1.97]) cylinder(d=M3_nut_diameter, h=M3_nut_height, $fn=6);
 }
 }
 
