@@ -53,12 +53,19 @@ blade_shell_thickness_inner = 0.5;
 blade_infill_distance = 25;
 blade_infill_overlap = 2;
 
+<<<<<<< HEAD
 blade_rod_diameter = 2.8;
 blade_rod2_diameter = 2.3;
 //blade_rod_position = [rotor_blade_depth/4 + 5, 0, 0];
 //blade_rod_position2 = [rotor_blade_depth/4 - 5, 0, 0];
 blade_rod_position = [15, 0, 0];
 blade_rod_position2 = [4, 0.3, 0];
+=======
+blade_rod_diameter = 2.28;
+blade_rod_position = [rotor_blade_depth/4 + 5, 0, 0];
+//blade_rod_position2 = [rotor_blade_depth/4 - 5, 0, 0];
+blade_rod_position2 = [3.1, 0.27, 0];
+>>>>>>> d57af72db3d2b4e2df2f77bee00952fa26f96a30
 
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
@@ -127,7 +134,7 @@ M2_5_nut_diameter = 6;
 M2_5_nut_pocket = 5.1;
 
 //Screw diameter and nut for M2 [mm]
-M2_screw_diameter = 2.2;
+M2_screw_diameter = 2.0;
 M2_nut_height = 1.8;
 M2_nut_diameter = 4.8;
 M2_nut_pocket = 3.95;
