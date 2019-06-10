@@ -105,7 +105,7 @@ module 111_1009(){
 
 
 module 111_1009_print(part = 1){
-    height = rotor_blade_length + blade_mount_length;
+    height = rotor_blade_length ;
     part_height = height/rotor_blade_parts_count;
     bottom  = part_height*(part-1);
 
