@@ -20,7 +20,8 @@ servo_lenght = 12;
 //rozměry držáku na servo
 servo_holder_mount_width = (M2_nut_diameter)*1.5;
 
-servo_holder_height = servo_height*1/3;
+servo_holder_height = servo_height/2;
+//servo_holder_height = servo_height*2/3;
 servo_holder_lenght = servo_lenght;
 servo_holder_width = servo_width + 2*servo_holder_mount_width;
 
@@ -31,7 +32,8 @@ module 888_1010 () {
 
     translate([connecting_part_lenght-cube_lenght, 0, 0]) {
 
-        difference() {  //hlavní kostka s osou
+        difference() {
+            //hlavní kostka s osou
           cube([cube_lenght, cube_width, cube_height]);
 
           translate([cube_side_thickness, cube_side_thickness, cube_side_thickness])
@@ -43,7 +45,8 @@ module 888_1010 () {
 
           translate([-1, cube_width/2 , hole_for_rope_height])
               rotate ([0,90,0])
-                  hull () {       //otvor pro drát
+                  hull () {
+                      //otvor pro drát
                       translate ([5,0,0]) cylinder (h=cube_side_thickness+2, d=2, $fn=50);
                       cylinder(h=cube_side_thickness+2, d=2, $fn=50);
                   }
@@ -51,7 +54,7 @@ module 888_1010 () {
     }
 
     //držák serva
-    translate([-servo_holder_lenght, -servo_holder_mount_width, 0]) {
+    translate([-servo_holder_lenght, -servo_holder_mount_width+servo_holder_mount_width/2-M2_screw_diameter/2, 0]) {
         difference() {
             union() {
                 cube([servo_holder_lenght, servo_holder_width, connecting_part_thickness]);
