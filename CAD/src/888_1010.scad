@@ -20,8 +20,8 @@ servo_lenght = 12;
 //rozměry držáku na servo
 servo_holder_mount_width = (M2_nut_diameter)*1.5;
 
-servo_holder_height = servo_height/2;
-//servo_holder_height = servo_height*2/3;
+//servo_holder_height = servo_height/2;
+servo_holder_height = servo_height*2/3;
 servo_holder_lenght = servo_lenght;
 servo_holder_width = servo_width + 2*servo_holder_mount_width;
 
@@ -70,10 +70,10 @@ module 888_1010 () {
                 cylinder(d=M2_screw_diameter, h=2*servo_holder_height, $fn=50);
 
             //otvory pro matice
-            translate([servo_lenght/2, servo_holder_width-servo_holder_mount_width/2,-1])
-                cylinder (d=M2_nut_diameter, h=M2_5_nut_height+1, $fn=6);
-            translate([servo_lenght/2, servo_holder_mount_width/2,-1])
-                cylinder (d=M2_nut_diameter, h=M2_5_nut_height+1, $fn=6);
+            translate([servo_lenght/2, servo_holder_width-servo_holder_mount_width/2, -1])
+                cylinder (d=M2_nut_diameter, h=servo_holder_height-4, $fn=6);
+            translate([servo_lenght/2, servo_holder_mount_width/2, -1])
+                cylinder (d=M2_nut_diameter, h=servo_holder_height-4, $fn=6);
         }
     }
 }
