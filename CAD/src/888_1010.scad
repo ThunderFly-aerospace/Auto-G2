@@ -20,8 +20,8 @@ servo_lenght = 12;
 //rozměry držáku na servo
 servo_holder_mount_width = (M2_nut_diameter)*1.5;
 
-//servo_holder_height = servo_height/2;
-servo_holder_height = servo_height*2/3;
+servo_holder_height = servo_height/2;
+//servo_holder_height = servo_height*2/3;
 servo_holder_lenght = servo_lenght;
 servo_holder_width = servo_width + 2*servo_holder_mount_width;
 
