@@ -2,7 +2,7 @@ include <../parameters.scad>
 
 //rozměry spodní spojovací části
 connecting_part_thickness = 2;
-connecting_part_lenght = 30; //délka spojovací části bez držáku na servo
+connecting_part_lenght = 40; //délka spojovací části bez držáku na servo
 
 //rozměry hlavní kostky s osou
 cube_width = 16;
