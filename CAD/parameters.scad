@@ -48,8 +48,9 @@ blade_transition_length = 10; // length of blade transition
 
 blade_mount_screw_distance = (16.47+11.86)/2;
 
-blade_shell_thickness = 0.82;
-blade_shell_thickness_inner = 0.5;
+blade_shell_thickness = 0.79;
+blade_shell_thickness_inner = 0.41;
+blade_shell_thickness_wire = 0.5;
 blade_infill_distance = 25;
 blade_infill_overlap = 2;
 
@@ -59,11 +60,13 @@ blade_infill_overlap = 2;
 //blade_rod_position = [15, 0, 0];
 //blade_rod_position2 = [4, 0.3, 0];
 
-blade_rod_diameter = 2.28;
-blade_rod2_diameter = 2.28;
+blade_rod1_diameter = 2.58;
+blade_rod2_diameter = 2.58;
+blade_rod3_diameter = 2.08;
 
-blade_rod_position = [rotor_blade_depth/4 + 3.5, 0, 0];
-blade_rod_position2 = [2.6, 0.27, 0];
+blade_rod1_position = [3.15, 0.27, 0];
+blade_rod2_position = [rotor_blade_depth/4 - 4.7, 0, 0];
+blade_rod3_position = [rotor_blade_depth/4 + 3.5, 0, 0];
 
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
