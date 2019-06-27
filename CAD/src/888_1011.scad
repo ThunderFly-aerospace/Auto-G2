@@ -67,7 +67,7 @@ include <../parameters.scad>
 
 wheelWidth     = 10;     // The width (or thickness) of the wheel at the rim.
 tireCSDiameter = 4;     // Cross-sectional diameter (CS) -- How thick is the tire rubber?
-tireID         = 50;    // Internal diameter (ID) -- How wide is the inside opening?
+tireID         = 45+2;    // Internal diameter (ID) -- How wide is the inside opening?
 tireStretch    = 1.01;  // Circumferential stretch percentage (usually 1 + 0-5%, e.g. 1.02) -- How
                         //   much do you want to stretch it to get it on?
 
@@ -84,7 +84,7 @@ tireStretch    = 1.01;  // Circumferential stretch percentage (usually 1 + 0-5%,
 //   position them along the circumference. Directional timing holes essentially double the
 //   resolution. You can also double resolution by looking for both rising and falling edges.
 
-rimHeight      = 2;        // The height of the rim portion of the wheel.
+rimHeight      = 2.5;        // The height of the rim portion of the wheel.
 timingHoles    = 0;        // The number of timing holes to carve into the rim
 timingHolePad  = [1,0.5,3]; // The [inside,middle,outside] padding for the timing holes
 directional    = false;      // A directional encoder renders two sets of slots, 90 deg out of phase
@@ -138,16 +138,16 @@ directional    = false;      // A directional encoder renders two sets of slots,
 // 		 * v - Each knob is in the shape of a "v" protruding from the surface of the wheel, whose
 // 				size is specified by knobSize
 
-treadStyle        = "none";  // none, cross, o-rings, v-grooves, squares, spheres, cylindersX,
+treadStyle        = "o-rings";  // none, cross, o-rings, v-grooves, squares, spheres, cylindersX,
                                   // 	  cylindersY, cylindersZ, spikes, slots, x, zigX, v
-knobSize          = [90,1.5,1];   // The size of each knob [across wheel, along the perimeter, prodruding]
+knobSize          = [90,1,1];   // The size of each knob [across wheel, along the perimeter, prodruding]
                                   //   or for v-grooves, [angle, depth, ignored]
 radialTreadSets   = 10;           // How many sets of treads to render around the wheel (2 rows per set).
-numberOfKnobs     = 4;            // The number of knobs to render per row.
+numberOfKnobs     = 2;            // The number of knobs to render per row.
 staggerOffset     = 2;            // A distance to offset the staggered rows.
 lineThickness     = 0;            // The line thickness for "drawn" styles, such as "x" and "zigX"
-maxTires          = 3;            // For o-rings/v-grooves, the maximum number of tires per wheel
-spaceBetweenTires = 2;            // For o-rings/v-grooves, the space between each tire, if more than one
+maxTires          = 2;            // For o-rings/v-grooves, the maximum number of tires per wheel
+spaceBetweenTires = 1;            // For o-rings/v-grooves, the space between each tire, if more than one
 
 // Spoke-related Parameters:
 //      This section is used to define the spoke style of the wheel. Some of the properties are only
@@ -176,7 +176,7 @@ spaceBetweenTires = 2;            // For o-rings/v-grooves, the space between ea
 
 spokeStyle        = "spiral";   // none, biohazard, circle, circlefit, diamond, line, rectangle, spiral, fill
 spokeInset        = [0,0];      // The [inner,outer] inset of the spoke area from the surface
-numberOfSpokes    = 10;          // Number of "spokes." Set this to three if you're doing the biohazard design
+numberOfSpokes    = 8;          // Number of "spokes." Set this to three if you're doing the biohazard design
 spokeWidth        = 1.3;          // This is how wide each spoke is.
 proportion        = [1.4,1.4];  // proportion to rim, proportion of width
 curvature         = 0.95;       // For "spiral", this is how curvey the spokes are. >0, but <=1, where
