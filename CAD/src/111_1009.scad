@@ -7,14 +7,14 @@ draft = true;
 include <../parameters.scad>
 use <lib/naca4.scad>
 
-rotor_blade_depth_naca_resolution = draft ? 70 : 150;
+rotor_blade_depth_naca_resolution = draft ? 70 : 130;
 
 module base_airfoil(h = rotor_blade_length){
     airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution, h = h - blade_transition_length - blade_mount_length, open = false);
 }
 
 module blade_shell(){
-    hollow_airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution, h = rotor_blade_length - blade_transition_length - blade_mount_length, open = false);
+    hollow_airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution, h = rotor_blade_length - blade_transition_length - blade_mount_length, open = false, wall_thickness = blade_shell_thickness);
 }
 
 
@@ -41,6 +41,7 @@ module blade_infill(){
         blade_shell();
     }
 }
+
 
 module blade_mount(){
     translate([rotor_blade_depth/4, 0, rotor_blade_length - blade_mount_length])
