@@ -17,6 +17,8 @@ rotor_blade_AOA = 1.5;      // nastavení úhlu náběhu rotorového listu
 rotor_blade_rod = true;  // generovat diru pro uhlikove tycky
 rotor_blade_length = 400 - 15;   // délka rotorového listu
 rotor_blade_depth = 45.5;     // hloubka rotorového listu
+
+
 blade_mount_length = 30;
 
 blade_mount_width = 17;
@@ -142,6 +144,7 @@ M2_nut_pocket = 3.95;
 
 
 blade_mount_screw = M3_screw_diameter;
+blade_mount_nut = M3_nut_diameter;
 
 
 //šroub servo
