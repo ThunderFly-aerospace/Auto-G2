@@ -11,7 +11,7 @@ module 888_1001()
     rotor_center_plate_size = 30;
     rotor_mounting_plate_size = 20;
     shaft_diameter = M3_screw_diameter;
-    thickness = 2.5;
+    thickness = 1.9;
     blade_screws_distance = (16.47+11.86)/2;
 
     difference () {
