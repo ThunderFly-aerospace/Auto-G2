@@ -84,7 +84,7 @@ tireStretch    = 1.01;  // Circumferential stretch percentage (usually 1 + 0-5%,
 //   position them along the circumference. Directional timing holes essentially double the
 //   resolution. You can also double resolution by looking for both rising and falling edges.
 
-rimHeight      = 2.5;        // The height of the rim portion of the wheel.
+rimHeight      = 3.5;        // The height of the rim portion of the wheel.
 timingHoles    = 0;        // The number of timing holes to carve into the rim
 timingHolePad  = [1,0.5,3]; // The [inside,middle,outside] padding for the timing holes
 directional    = false;      // A directional encoder renders two sets of slots, 90 deg out of phase
