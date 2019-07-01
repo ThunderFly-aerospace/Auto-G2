@@ -17,6 +17,8 @@ rotor_blade_AOA = 1.5;      // nastavení úhlu náběhu rotorového listu
 rotor_blade_rod = true;  // generovat diru pro uhlikove tycky
 rotor_blade_length = 400 - 15;   // délka rotorového listu
 rotor_blade_depth = 45.5;     // hloubka rotorového listu
+
+
 blade_mount_length = 30;
 
 blade_mount_width = 17;
@@ -48,8 +50,9 @@ blade_transition_length = 10; // length of blade transition
 
 blade_mount_screw_distance = (16.47+11.86)/2;
 
-blade_shell_thickness = 0.82;
-blade_shell_thickness_inner = 0.5;
+blade_shell_thickness = 0.5;
+blade_shell_thickness_inner = 0.41;
+blade_shell_thickness_wire = 0.5;
 blade_infill_distance = 25;
 blade_infill_overlap = 2;
 
@@ -59,10 +62,13 @@ blade_infill_overlap = 2;
 //blade_rod_position = [15, 0, 0];
 //blade_rod_position2 = [4, 0.3, 0];
 
-blade_rod_diameter = 2.28;
+blade_rod1_diameter = 2.58;
+blade_rod2_diameter = 2.58;
+blade_rod3_diameter = 2.13;
 
-blade_rod_position = [rotor_blade_depth/4 + 3.5, 0, 0];
-blade_rod_position2 = [2.6, 0.27, 0];
+blade_rod1_position = [3.35, 0.3, 0];
+blade_rod2_position = [rotor_blade_depth/4 - 4.6, 0.2, 0];
+blade_rod3_position = [rotor_blade_depth/4 + 3.5, 0, 0];
 
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
@@ -137,7 +143,8 @@ M2_nut_diameter = 4.8;
 M2_nut_pocket = 3.95;
 
 
-blade_mount_screw = M3_screw_diameter;
+blade_mount_screw = M2_screw_diameter;
+blade_mount_nut = M2_nut_diameter;
 
 
 //šroub servo
@@ -164,3 +171,10 @@ maximum_printable_size = 150;
 ////Pitotova trubice
 Pitot_tube_diameter = 4.02 + 1;
 Distance_hole_from_tube = 11.92;  //vzdálenost otvoru pro připevnění od samotné trubičky
+
+
+////Vlečné zařízení
+tow_ring_diameter = 20;
+tow_ring_thickness = 5;
+tow_ring_groove = 2;
+tow_ring_hole_diameter = M3_screw_diameter;
