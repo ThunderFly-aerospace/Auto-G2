@@ -35,8 +35,8 @@ module body() {
                         cylinder(r=RC+2, h=L1+4, center = true, $fn=fn);
 
             }
-            
-            
+
+
             hull(){
                 translate([0, 0, 0])
                     cube([L1, L2, H-6], center= true);
@@ -49,7 +49,7 @@ module body() {
         }
 
         cube([L1-2*T2, L2-2*T1, H*10], center = true);
-        
+
         translate([0,0,-50])
             cube([L1-2*T2, 50, 100], center = true);
     }
@@ -69,7 +69,7 @@ module Part1(){
             rotate([0,90,0]) translate([-DZ/2,DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
             rotate([0,90,0]) translate([DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
             rotate([0,90,0]) translate([-DZ/2,-DY/2,0]) cylinder(r=RP, h=L1+2, center = true, $fn=fn);
-            
+
            // Zapusteni pro matky
             rotate([0,90,0]) translate([DZ/2,DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
             rotate([0,90,0]) translate([-DZ/2,DY/2,0]) cylinder(d=M2_nut_diameter, h=L1-2*T2+1, center = true, $fn=6);
