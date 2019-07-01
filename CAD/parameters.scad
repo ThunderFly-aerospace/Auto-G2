@@ -143,8 +143,8 @@ M2_nut_diameter = 4.8;
 M2_nut_pocket = 3.95;
 
 
-blade_mount_screw = M3_screw_diameter;
-blade_mount_nut = M3_nut_diameter;
+blade_mount_screw = M2_screw_diameter;
+blade_mount_nut = M2_nut_diameter;
 
 
 //šroub servo

@@ -1,8 +1,10 @@
+//VYPOUSTECI ZARIZENI
+
 include <../parameters.scad>
 
 //rozměry spodní spojovací části
-connecting_part_thickness = 2;
-connecting_part_lenght = 40; //délka spojovací části bez držáku na servo
+connecting_part_thickness = 2.5;
+connecting_part_lenght = 35; //délka spojovací části bez držáku na servo
 
 //rozměry hlavní kostky s osou
 cube_width = 16;
@@ -18,7 +20,7 @@ servo_width = 23;
 servo_lenght = 12;
 
 //rozměry držáku na servo
-servo_holder_mount_width = (M2_nut_diameter)*1.5;
+servo_holder_mount_width = 5;
 
 servo_holder_height = servo_height/2;
 //servo_holder_height = servo_height*2/3;
@@ -59,6 +61,8 @@ module 888_1010 () {
             union() {
                 cube([servo_holder_lenght, servo_holder_width, connecting_part_thickness]);
                 cube([servo_holder_lenght, servo_holder_width, servo_holder_height+connecting_part_thickness]);
+                translate([0, -1, 0])
+                    cube([servo_holder_lenght, servo_holder_width+2, servo_holder_height+connecting_part_thickness]);
             }
             translate([-1, servo_holder_mount_width, connecting_part_thickness])
                 cube([servo_holder_lenght+2, servo_width, servo_holder_height+connecting_part_thickness+1]);
