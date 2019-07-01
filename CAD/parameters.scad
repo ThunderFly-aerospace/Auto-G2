@@ -66,8 +66,8 @@ blade_rod1_diameter = 2.58;
 blade_rod2_diameter = 2.58;
 blade_rod3_diameter = 2.13;
 
-blade_rod1_position = [3.35, 0.3, 0];
-blade_rod2_position = [rotor_blade_depth/4 - 4.6, 0.2, 0];
+blade_rod1_position = [3.4, 0.3, 0];
+blade_rod2_position = [rotor_blade_depth/4 - 3.5, 0.2, 0];
 blade_rod3_position = [rotor_blade_depth/4 + 3.5, 0, 0];
 
 
