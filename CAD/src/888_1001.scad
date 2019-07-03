@@ -44,6 +44,13 @@ module 888_1001()
                 translate([0, 3 + 4.5 + blade_mount_screw/2, 0])
                     cylinder(d = blade_mount_screw, h = 2* thickness, center = true, $fn = 20);
         }
+
+        //diry pro lepsi moznost utrzeni listu
+        for (i=[1,2,4,5]) {
+            rotate ([0, 0, 60*i])
+                translate ([12, 0, 0])
+                    cylinder (h=thickness+2, d=shaft_diameter, center=true, $fn=100);
+        }
     }
 }
 
