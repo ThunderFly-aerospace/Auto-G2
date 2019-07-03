@@ -5,7 +5,7 @@
 
 include <../parameters.scad>
 
-module 888_1001(hole_diameter=3)
+module 888_1001(hole_diameter=5)
 {
     angle_between_blades = 360 / rotor_blades_count;
     rotor_center_plate_size = 30;
