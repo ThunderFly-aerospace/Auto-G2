@@ -33,14 +33,14 @@ module 111_1004(){
                 if (rotor_blades_count/2 == round(rotor_blades_count/2))  // check if there is even or odd blade number
                 {
                     rotate([0,0, i*angle_between_blades])
-                        translate([0, 3 + 4.5 + M3_screw_diameter/2, 0])
-                            cylinder(d = M3_screw_diameter, h = 2* thickness, center = true, $fn = 20);
+                        translate([0, 3 + 4.5 + blade_mount_screw/2, 0])
+                            cylinder(d = blade_mount_screw, h = 2* thickness, center = true, $fn = 20);
                 }
                 else
                 {
                     rotate([0,0, i*angle_between_blades - angle_between_blades/2 ])
-                        translate([0, 3 + 4.5 + M3_screw_diameter/2, 0])
-                            cylinder(d = M3_screw_diameter, h = 2* thickness, center = true, $fn = 20);
+                        translate([0, 3 + 4.5 + blade_mount_screw/2, 0])
+                            cylinder(d = blade_mount_screw, h = 2* thickness, center = true, $fn = 20);
                 }
             }
         }
