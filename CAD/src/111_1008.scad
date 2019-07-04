@@ -25,14 +25,14 @@ module 111_1008(){
                     {
                         rotate([0,0, i*angle_between_blades])
                             translate([0, 3 + 4.5 + blade_mount_screw/2, -thickness/2]) {
-                                cylinder(d = blade_mount_nut+1.25, h = M3_nut_height + thickness, $fn = 30);
+                                cylinder(d = 1.6*blade_mount_nut, h = M3_nut_height + thickness, $fn = 30);
                             }
                     }
                     else
                     {
                         rotate([0,0, i*angle_between_blades - angle_between_blades/2 ])
                             translate([0, 3 + 4.5 + blade_mount_screw/2, -thickness/2])
-                                cylinder(d = blade_mount_nut+1.25, h = M3_nut_height/2 + thickness, $fn = 30);
+                                cylinder(d = 1.6*blade_mount_nut, h = M3_nut_height/2 + thickness, $fn = 30);
                     }
                 }
             }

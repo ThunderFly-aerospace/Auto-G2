@@ -28,8 +28,8 @@ faces = [
 difference() {
 	union() {
 		polyhedron(points, faces);
-		translate([move_index, 7, 1.97]) cylinder(d=blade_mount_nut+2.5, h=M3_nut_height, $fn=40	);
-		translate([move_index+blade_screws_distance, 7, 1.97]) cylinder(d=blade_mount_nut+2.5, h=M3_nut_height, $fn=40);
+		translate([move_index, 7, 1.97]) cylinder(d=1.6*blade_mount_nut, h=M3_nut_height, $fn=40	);
+		translate([move_index+blade_screws_distance, 7, 1.97]) cylinder(d=1.6*blade_mount_nut, h=M3_nut_height, $fn=40);
 	}
 	translate([move_index, 7, 0]) cylinder(d=screw_diameter, h=2, $fn=20);
 	translate([move_index+blade_screws_distance, 7, 0]) cylinder(d=screw_diameter, h=2, $fn=20);
