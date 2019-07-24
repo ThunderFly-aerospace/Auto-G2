@@ -1,4 +1,4 @@
-STL_DIR=../../STL/manufacturing_helpers
+STL_DIR=../../STL
 IMG_DIR=../../../doc/img
 SRC_DIR=./
 PLATE_DIMMENSIONS=120
