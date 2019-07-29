@@ -29,8 +29,8 @@ servo_holder_width = servo_width + 2*servo_holder_mount_width;
 
 module 888_1010 () {
     //spodní spojovací část
-    cube([connecting_part_lenght, cube_width, connecting_part_thickness]);
-
+translate ([8, 0, 0])
+    cube([cube_lenght+7, cube_width, connecting_part_thickness]);
 
     translate([connecting_part_lenght-cube_lenght, 0, 0]) {
 
