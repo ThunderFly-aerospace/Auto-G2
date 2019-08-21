@@ -22,7 +22,7 @@ rotor_blade_depth = 45.5;     // hloubka rotorového listu
 blade_mount_length = 30;
 
 blade_mount_width = 17;
-blade_mount_thickness = 4;
+blade_mount_thickness = 4.6;
 blade_mount_screw_offset = 5; // distance of first screw from rotor end
 
 // Testovaci maly rotor
@@ -50,9 +50,9 @@ blade_transition_length = 10; // length of blade transition
 
 blade_mount_screw_distance = (16.47+11.86)/2;
 
-blade_shell_thickness = 0.45;
-blade_shell_thickness_inner = 0.45;
-blade_shell_thickness_wire = 0.45;
+blade_shell_thickness = 0.4;
+blade_shell_thickness_inner = 0.4;
+blade_shell_thickness_wire = 0.4;
 blade_infill_distance = 25;
 blade_infill_overlap = 2;
 
