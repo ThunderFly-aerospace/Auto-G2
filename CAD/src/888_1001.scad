@@ -5,13 +5,13 @@
 
 include <../parameters.scad>
 
-module 888_1001(hole_diameter=3)
+module 888_1001(hole_diameter = 3)
 {
     angle_between_blades = 360 / rotor_blades_count;
     rotor_center_plate_size = 30;
     rotor_mounting_plate_size = 20;
     shaft_diameter = M3_screw_diameter;
-    thickness = 1.9;
+    thickness = 2.5;
     blade_screws_distance = (16.47+11.86)/2;
 
     difference () {
