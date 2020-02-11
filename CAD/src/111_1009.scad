@@ -2,43 +2,63 @@
 
 /// Rotor blade
 
+
+//@set_modificator(111_1009_modificator)
+//@set_slicing_config(../slicing/blades/infill_modif.ini, 111_1009_modificator)
+
 draft = true;
 
 include <../parameters.scad>
 use <lib/naca4.scad>
 
-rotor_blade_depth_naca_resolution = draft ? 70 : 130;
+rotor_blade_depth_naca_resolution = draft ? 50 : 100;
 
 module base_airfoil(h = rotor_blade_length){
     airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution, h = h - blade_transition_length - blade_mount_length, open = false);
 }
 
-module blade_shell(){
-    hollow_airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution, h = rotor_blade_length - blade_transition_length - blade_mount_length, open = false, wall_thickness = blade_shell_thickness);
+module blade_shell(thickness = blade_shell_thickness){
+    hollow_airfoil(naca = rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution, h = rotor_blade_length - blade_transition_length - blade_mount_length, open = false, wall_thickness = thickness);
 }
 
 
 module blade_infill(){
     difference(){
         intersection(){
-            base_airfoil();
             union(){
-                render(){
-                    //cylinder(d=10, h=rotor_blade_length);
-                    //translate([40, -10, 0])
-                    //    cube([20, 20, 400]);
                     for (i=[0 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
-                        translate([0, -25, i])
+                        translate([0, -10, i])
                             rotate([0, 60, 0])
-                                cube([rotor_blade_depth*2, 50, blade_shell_thickness_inner]);
-                        translate([rotor_blade_depth/4, -25, i])
+                                cube([rotor_blade_depth*1.5, 20, blade_shell_thickness_inner]);
+
+                        translate([rotor_blade_depth/4, -10, i])
                             rotate([0, 90+30, 0])
-                                cube([rotor_blade_depth*2, 50, blade_shell_thickness_inner]);
+                                cube([rotor_blade_depth, 20, blade_shell_thickness_inner]);
+
+                        translate([rotor_blade_depth/4, -10, i + blade_infill_distance/2])
+                            rotate([0, 90+30, 0])
+                                cube([rotor_blade_depth, 20, blade_shell_thickness_inner]);
                     }
-                }
+
+
+                    /* translate([-blade_shell_thickness_inner/2 + blade_rod1_position[0] + 1.25, -5, 0])
+                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
+                    translate([-blade_shell_thickness_inner/2 + blade_rod1_position[0] - 1.25, -5, 0])
+                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
+
+                    translate([-blade_shell_thickness_inner/2 + blade_rod2_position[0] + 1.25, -5, 0])
+                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
+                    translate([-blade_shell_thickness_inner/2 + blade_rod2_position[0] - 1.25, -5, 0])
+                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
+
+                    translate([-blade_shell_thickness_inner/2 + blade_rod3_position[0] + 12.5, -5, 0])
+                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
+                    translate([-blade_shell_thickness_inner/2 + blade_rod3_position[0] - 1.25, -5, 0])
+                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]); */
             }
+            base_airfoil();
         }
-        blade_shell();
+        blade_shell(thickness = 0.8);
     }
 }
 
@@ -83,30 +103,52 @@ module blade_mount(){
 module 111_1009(){
     difference(){
         union(){
-            blade_infill();
-            blade_shell();
+            base_airfoil();
+            //blade_infill();
+            //blade_shell();
             blade_mount();
-            if (rotor_blade_rod){
+            /* if (rotor_blade_rod){
                 translate(blade_rod1_position)
                     cylinder(d = blade_rod1_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
                 translate(blade_rod2_position)
                     cylinder(d = blade_rod2_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
                 translate(blade_rod3_position)
                     cylinder(d = blade_rod3_diameter + blade_shell_thickness_inner*2, h = rotor_blade_length, $fn = 50);
-            }
+            } */
         }
+
+        blade_infill();
 
         // diry na vyztuhu
         if (rotor_blade_rod){
-            translate(blade_rod1_position - [0, 0, 0.5])
-                cylinder(d = blade_rod1_diameter, h = rotor_blade_length + 1, $fn = 50);
+            //translate(blade_rod1_position - [0, 0, 0.5])
+            //    cylinder(d = blade_rod1_diameter, h = rotor_blade_length + 1, $fn = 50);
             translate(blade_rod2_position - [0, 0, 0.5])
                 cylinder(d = blade_rod2_diameter, h = rotor_blade_length + 1, $fn = 50);
             translate(blade_rod3_position - [0, 0, 0.5])
                 cylinder(d = blade_rod3_diameter, h = rotor_blade_length + 1, $fn = 50);
         }
+
+        translate([rotor_blade_depth-2, -10, -1])
+            cube([20, 20, rotor_blade_length+2]);
     }
 }
+
+module 111_1009_modificator(){
+
+    translate([-rotor_blade_depth/4*3, -10, 0])
+        cube([rotor_blade_depth, 20, rotor_blade_length]);
+
+    hull(){
+        translate([0, -10, rotor_blade_length-2])
+            cube([rotor_blade_depth/2, 20, 2]);
+
+        translate([-rotor_blade_depth/4*3, -10, rotor_blade_length-2 - 60])
+            cube([rotor_blade_depth, 20, 2]);
+    }
+}
+
+%111_1009_modificator();
 
 
 module 111_1009_print(part = 1){
