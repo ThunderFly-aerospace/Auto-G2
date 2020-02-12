@@ -9,7 +9,7 @@
 draft = true;
 
 include <../parameters.scad>
-use <lib/naca4.scad>
+use <../lib/naca4.scad>
 
 rotor_blade_depth_naca_resolution = draft ? 50 : 100;
 
