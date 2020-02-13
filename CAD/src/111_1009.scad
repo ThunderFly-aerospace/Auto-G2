@@ -117,6 +117,18 @@ module 111_1009(){
                 cylinder(d = blade_rod3_diameter, h = rotor_blade_length + 1, $fn = 50);
         }
 
+
+        rotor_blade_endtip_diameter = 20;
+
+        difference(){
+        cube([100, 30, 30], center = true);
+        translate([0, -rotor_blade_endtip_diameter/2+4, rotor_balde_tip_cutoff])
+            rotate([-10, 0, 0])
+                rotate([0, 90, 0])
+                    scale([1.8, 1, 1])
+                        cylinder(d = rotor_blade_endtip_diameter, h = rotor_blade_depth, $fn = 100);
+        }
+
         translate([rotor_blade_depth-2, -10, -1])
             cube([20, 20, rotor_blade_length+2]);
     }
@@ -137,7 +149,18 @@ module 111_1009_modificator(){
     }
 }
 
+
+module 111_1009_end_modificator(){
+
+    translate([0, -5, 0])
+        cube([rotor_blade_depth, 10, rotor_balde_tip_cutoff]);
+
+    translate([0, -5, rotor_blade_length-2])
+        cube([rotor_blade_depth/2, 10, 2]);
+}
+
 %111_1009_modificator();
+%111_1009_end_modificator();
 
 
 module 111_1009_print(part = 1){
@@ -147,10 +170,10 @@ module 111_1009_print(part = 1){
 
     translate([0, 0, -bottom])
     intersection(){
-    difference(){
+    //difference(){
 
 
-        union(){
+        /* union(){
             base_airfoil();
             blade_mount();
         }
@@ -168,11 +191,14 @@ module 111_1009_print(part = 1){
         translate([rotor_blade_depth-2, -10, -1])
             cube([20, 20, rotor_blade_length+2]);
 
-        }
+        } */
 
-            translate([0, -25, bottom])
-                cube([rotor_blade_depth, 50, part_height]);
-            }
+        111_1009();
+
+
+        translate([0, -25, bottom])
+            cube([rotor_blade_depth, 50, part_height]);
+        }
 }
 module 111_1009_print_modificator(part = 1){
     height = rotor_blade_length;
@@ -181,6 +207,17 @@ module 111_1009_print_modificator(part = 1){
 
     translate([0, 0, -bottom])
             111_1009_modificator();
+
+}
+
+
+module 111_1009_end_print_modificator(part = 1){
+    height = rotor_blade_length;
+    part_height = height/rotor_blade_parts_count;
+    bottom  = part_height*(part-1);
+
+    translate([0, 0, -bottom])
+            111_1009_end_modificator();
 
 }
 
