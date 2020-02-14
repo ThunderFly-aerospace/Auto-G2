@@ -64,6 +64,11 @@ module 111_1008(){
                             }
                     }
                 }
+
+            // space for rotor fixing nut
+            translate([0,0,thickness-thickness/2+0.5])
+                cylinder(d = spacer_disc_diameter, h = thickness + 0.5, $fn = 100);
+
             }
         }
 }
