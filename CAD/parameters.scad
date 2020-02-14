@@ -11,14 +11,13 @@ main_tube_inner_diameter = 23.05;
 
 gliding_aggle = 14;         // tenhle úhel by se zřejmě v budoucnu měl počítat z požadované klouzavosti.
 
-rotor_blade_AOA = 1.5;      // nastavení úhlu náběhu rotorového listu
+rotor_blade_AOA = 3.5;      // nastavení úhlu náběhu rotorového listu
 
 // Rotor Auto-G2
 rotor_blade_rod = true;  // generovat diru pro uhlikove tycky
 rotor_blade_length = 400;   // délka rotorového listu
 rotor_blade_depth = 45.5;     // hloubka rotorového listu
 rotor_balde_tip_cutoff = 15; // delka sikme plochy na konci listu
-
 
 blade_mount_length = 30;
 
