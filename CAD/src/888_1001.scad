@@ -14,6 +14,7 @@ module 888_1001(hole_diameter=3)
     thickness = 1.9;
     blade_screws_distance = (16.47+11.86)/2;
 
+    translate([0, 0, thickness/2])
     difference () {
         union () {
             cylinder(r = 3+9, h = thickness, center = true, $fn = 100);

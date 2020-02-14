@@ -7,8 +7,7 @@ use <111_1008.scad>
 use <111_1009.scad>
 
 
-
-module 111_1102(AOA = rotor_blade_AOA){
+module 111_1102(){
     888_1001();
 
     if(rotor_blades_count == 2) {
@@ -42,7 +41,7 @@ module 111_1102(AOA = rotor_blade_AOA){
                 rotate([0, 0, -90])
                     111_1006();
 
-        rotate([0, AOA, i])
+        rotate([0, rotor_blade_AOA, i])
             translate([rotor_blade_depth/4, rotor_blade_length+50, 0])
                 rotate([90, 180, 0])
                     111_1009();
