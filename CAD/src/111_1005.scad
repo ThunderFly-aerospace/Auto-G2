@@ -1,6 +1,6 @@
 include <../parameters.scad>;
 
-module 111_1005() {
+module 111_1005(AOA = rotor_blade_AOA) {
     blade_screws_distance = (16.47+11.86)/2;
     move_index = 4+blade_mount_screw/2;
 
@@ -9,10 +9,10 @@ module 111_1005() {
     	[26.15, 0, 0],
     	[28.8, 14, 0],
     	[0, 14, 0],
-    	[0, 0, 2.07],
-    	[25, 0, 2.07],
-    	[27.4, 14, 2.9],
-    	[0, 14, 2.9]
+    	[0, 0, 10],
+    	[25, 0, 10],
+    	[27.4, 14, 10],
+    	[0, 14, 10]
     ];
 
     faces = [
@@ -30,6 +30,17 @@ module 111_1005() {
             cylinder(d=blade_mount_screw, h=4, $fn=20);
     	translate([move_index+blade_screws_distance, 7,  -global_clearance])
             cylinder(d=blade_mount_screw, h=4, $fn=20);
+        
+        // Vytvoreni sikme plochy
+        translate([0, 14/2, 0])
+            rotate([-AOA, 0, 0]){
+                translate([0, 0, 100/2+2])
+                    cube(100, center = true);
+                translate([15, -5, 2-0.2])
+                    rotate([0, 0, 90])
+                        linear_extrude(10)
+                            text(str(AOA), size = 5);
+                }
     }
 }
 111_1005();
