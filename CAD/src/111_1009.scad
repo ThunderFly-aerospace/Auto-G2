@@ -1,10 +1,10 @@
 //// ThunderFly Auto-G2 3D printable Rotor blade
-
 /// Rotor blade
 
+//@set_slicing_config(../../slicing/blades/blade.ini)
 
 //@set_modificator(111_1009_modificator)
-//@set_slicing_config(../slicing/blades/infill_modif.ini, 111_1009_modificator)
+//@set_slicing_config(../../slicing/blades/infill_modif.ini, 111_1009_modificator)
 
 draft = true;
 
@@ -26,7 +26,7 @@ module blade_infill(){
     difference(){
         intersection(){
             union(){
-                    for (i=[0 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
+                    /* for (i=[0 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
                         translate([0, -10, i])
                             rotate([0, 60, 0])
                                 cube([rotor_blade_depth*1.5, 20, blade_shell_thickness_inner]);
@@ -38,23 +38,9 @@ module blade_infill(){
                         translate([rotor_blade_depth/4, -10, i + blade_infill_distance/2])
                             rotate([0, 90+30, 0])
                                 cube([rotor_blade_depth, 20, blade_shell_thickness_inner]);
-                    }
+                    } */
 
 
-                    /* translate([-blade_shell_thickness_inner/2 + blade_rod1_position[0] + 1.25, -5, 0])
-                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
-                    translate([-blade_shell_thickness_inner/2 + blade_rod1_position[0] - 1.25, -5, 0])
-                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
-
-                    translate([-blade_shell_thickness_inner/2 + blade_rod2_position[0] + 1.25, -5, 0])
-                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
-                    translate([-blade_shell_thickness_inner/2 + blade_rod2_position[0] - 1.25, -5, 0])
-                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
-
-                    translate([-blade_shell_thickness_inner/2 + blade_rod3_position[0] + 12.5, -5, 0])
-                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]);
-                    translate([-blade_shell_thickness_inner/2 + blade_rod3_position[0] - 1.25, -5, 0])
-                        cube([blade_shell_thickness_inner, 10, rotor_blade_length]); */
             }
             base_airfoil();
         }

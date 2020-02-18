@@ -43,7 +43,7 @@ rotor_blades_count = 2;
 rotor_delta_angle = 12;
 rotor_blade_thickness = 5.1;
 
-rotor_blade_naca = 0013;
+rotor_blade_naca = 2412;
 rotor_blade_parts_count = 3;
 
 blade_transition_length = 10; // length of blade transition
@@ -161,9 +161,7 @@ Servo_nut_height = 1;
 Servo_nut_diameter = 2.7;
 
 
-
 //center_of_gravity_position = [main_pilon_position - tan(gliding_aggle)*rotor_height, 0, 0];
-
 
 ////podzvozek
 
