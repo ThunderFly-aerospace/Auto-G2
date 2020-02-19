@@ -16,34 +16,23 @@ rotor_blade_AOA = 3.5;      // nastavení úhlu náběhu rotorového listu
 // Rotor Auto-G2
 rotor_blade_rod = true;  // generovat diru pro uhlikove tycky
 rotor_blade_length = 400;   // délka rotorového listu
-rotor_blade_depth = 45.5;     // hloubka rotorového listu
+rotor_blade_depth = 48;     // hloubka rotorového listu
 rotor_balde_tip_cutoff = 15; // delka sikme plochy na konci listu
 
 blade_mount_length = 30;
 
 blade_mount_width = 17;
+blade_mount_offset = 0/2;
 blade_mount_thickness = 4.6;
 blade_mount_screw_offset = 5; // distance of first screw from rotor end
 
-// Testovaci maly rotor
-
-        /*
-        rotor_blade_rod = false;
-        rotor_blade_length = 145;   // délka rotorového listu
-        rotor_blade_depth = 45.5 * (145/385);     // hloubka rotorového listu
-        blade_mount_length = 20;
-        blade_mount_width = 10;
-        blade_mount_thickness = 4;
-        */
-
-// konec parametru pro testovaci maly rotor
 
 rotor_height = 180;         // výška otočného kloubu rotoru nad hlavní trubkou vírníku (odhad)
 rotor_blades_count = 2;
 rotor_delta_angle = 12;
 rotor_blade_thickness = 5.1;
 
-rotor_blade_naca = 2412;
+rotor_blade_naca = 2414;
 rotor_blade_parts_count = 3;
 
 blade_transition_length = 10; // length of blade transition
@@ -71,11 +60,11 @@ blade_infill_overlap = 0;
 //blade_rod_position2 = [4, 0.3, 0];
 
 blade_rod1_diameter = 2.58;
-blade_rod2_diameter = 2.58;
-blade_rod3_diameter = 2.13;
+blade_rod2_diameter = 2.5;
+blade_rod3_diameter = 2.5;
 
 blade_rod1_position = [3.65, 0, 0];
-blade_rod2_position = [rotor_blade_depth/4 - 6.5, 0, 0];
+blade_rod2_position = [rotor_blade_depth/4 - 5, 0, 0];
 blade_rod3_position = [rotor_blade_depth/4 + 5, 0, 0];
 
 

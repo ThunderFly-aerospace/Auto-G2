@@ -1,12 +1,14 @@
 include <../../parameters.scad>
 use <../111_1009.scad>
 
+//@set_slicing_config(../../../slicing/blades/blade.ini)
+
 //@set_modificator(modificator)
-//@set_slicing_config(../../slicing/blades/infill_modif.ini, modificator)
+//@set_slicing_config(../../../slicing/blades/infill_modif.ini, modificator)
 
 
-//@set_modificator(modificatorb)
-//@set_slicing_config(../../slicing/blades/ends_modif.ini, modificatorb)
+//set_modificator(modificatorb)
+//set_slicing_config(../../../slicing/blades/ends_modif.ini, modificatorb)
 
 
 

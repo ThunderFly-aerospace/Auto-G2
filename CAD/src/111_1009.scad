@@ -26,19 +26,19 @@ module blade_infill(){
     difference(){
         intersection(){
             union(){
-                    /* for (i=[0 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
-                        translate([0, -10, i])
-                            rotate([0, 60, 0])
-                                cube([rotor_blade_depth*1.5, 20, blade_shell_thickness_inner]);
+                 for (i=[10 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
+                    translate([rotor_blade_depth/4, -10, i])
+                        rotate([0, -30, 0])
+                            cube([rotor_blade_depth/3, 20, blade_shell_thickness_inner]);
 
-                        translate([rotor_blade_depth/4, -10, i])
-                            rotate([0, 90+30, 0])
-                                cube([rotor_blade_depth, 20, blade_shell_thickness_inner]);
+                    //translate([rotor_blade_depth/4, -10, i])
+                    //    rotate([0, 90+30, 0])
+                    //        cube([rotor_blade_depth, 20, blade_shell_thickness_inner]);
 
-                        translate([rotor_blade_depth/4, -10, i + blade_infill_distance/2])
-                            rotate([0, 90+30, 0])
-                                cube([rotor_blade_depth, 20, blade_shell_thickness_inner]);
-                    } */
+                    translate([rotor_blade_depth/4, -10, i + blade_infill_distance/2])
+                        rotate([0, -30, 0])
+                            cube([rotor_blade_depth/3*2-5, 20, blade_shell_thickness_inner]);
+                }
 
 
             }
@@ -53,7 +53,7 @@ module blade_mount(){
     translate([rotor_blade_depth/4, 0, rotor_blade_length - blade_mount_length])
         difference(){
             union(){
-                translate([-blade_mount_width/2, -blade_mount_thickness/2 + blade_rod2_position[1], -1])
+                translate([-blade_mount_width/2 - blade_mount_offset, -blade_mount_thickness/2 , -1])
                     cube([blade_mount_width, blade_mount_thickness, blade_mount_length + 1]);
 
                 hull(){
@@ -61,7 +61,7 @@ module blade_mount(){
                         linear_extrude(height = 0.1)
                             polygon(points = airfoil_data(naca=rotor_blade_naca, L = rotor_blade_depth, N = rotor_blade_depth_naca_resolution));
 
-                    translate([-blade_mount_width/2, -blade_mount_thickness/2 + blade_rod2_position[1], -1])
+                    translate([-blade_mount_width/2 - blade_mount_offset, -blade_mount_thickness/2, -1])
                         cube([blade_mount_width, blade_mount_thickness, blade_mount_length/2]);
                 }
             }
