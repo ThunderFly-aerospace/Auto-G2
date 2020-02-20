@@ -96,7 +96,7 @@ module 111_1009(){
         blade_infill();
 
         // diry na vyztuhu
-        if (rotor_blade_rod){
+        if (rotor_blade_rod)translate([0, 0, 8]){
             translate(blade_rod2_position - [0, 0, 0.5])
                 cylinder(d = blade_rod2_diameter, h = rotor_blade_length + 1, $fn = 50);
             translate(blade_rod3_position - [0, 0, 0.5])
