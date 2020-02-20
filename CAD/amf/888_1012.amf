@@ -3871,16 +3871,6 @@
      <v3>303</v3>
     </triangle>
     <triangle>
-     <v1>185</v1>
-     <v2>194</v2>
-     <v3>137</v3>
-    </triangle>
-    <triangle>
-     <v1>137</v1>
-     <v2>194</v2>
-     <v3>191</v3>
-    </triangle>
-    <triangle>
      <v1>139</v1>
      <v2>137</v2>
      <v3>235</v3>
@@ -3888,6 +3878,16 @@
     <triangle>
      <v1>235</v1>
      <v2>137</v2>
+     <v3>191</v3>
+    </triangle>
+    <triangle>
+     <v1>185</v1>
+     <v2>194</v2>
+     <v3>137</v3>
+    </triangle>
+    <triangle>
+     <v1>137</v1>
+     <v2>194</v2>
      <v3>191</v3>
     </triangle>
     <triangle>
