@@ -145,8 +145,8 @@ module 111_1009_end_modificator(){
         cube([rotor_blade_depth/2, 10, 2]);
 }
 
-//%111_1009_modificator();
-//%111_1009_end_modificator();
+%111_1009_modificator();
+%111_1009_end_modificator();
 
 
 module 111_1009_print(part = 1){
