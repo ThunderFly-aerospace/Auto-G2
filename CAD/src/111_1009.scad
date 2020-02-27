@@ -6,6 +6,9 @@
 //@set_modificator(111_1009_modificator)
 //@set_slicing_config(../../slicing/blades/infill_modif.ini, 111_1009_modificator)
 
+//@set_modificator(111_1009_pipe_modificator)
+//@set_slicing_config(../../slicing/blades/pipe_modif.ini, 111_1009_pipe_modificator)
+
 draft = true;
 
 include <../parameters.scad>
@@ -29,15 +32,15 @@ module blade_infill(){
                  for (i=[10 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
                     translate([rotor_blade_depth/4, -10, i])
                         rotate([0, -30, 0])
-                            cube([rotor_blade_depth/3, 20, blade_shell_thickness_inner]);
+                            #cube([rotor_blade_depth/3, 20, blade_shell_thickness_inner]);
 
                     //translate([rotor_blade_depth/4, -10, i])
                     //    rotate([0, 90+30, 0])
                     //        cube([rotor_blade_depth, 20, blade_shell_thickness_inner]);
 
                     translate([rotor_blade_depth/4, -10, i + blade_infill_distance/2])
-                        rotate([0, -30, 0])
-                            cube([rotor_blade_depth/3*2-5, 20, blade_shell_thickness_inner]);
+                        #rotate([0, -30, 0])
+                            cube([rotor_blade_depth/3*2, 20, blade_shell_thickness_inner]);
                 }
 
 
@@ -108,7 +111,7 @@ module 111_1009(){
 
         difference(){
         cube([100, 30, 30], center = true);
-        translate([0, rotor_blade_endtip_diameter/2-4, rotor_balde_tip_cutoff])
+        translate([0, rotor_blade_endtip_diameter/2-4, rotor_balde_tip_cutoff+1.8])
             rotate([10, 0, 0])
                 rotate([0, 90, 0])
                     scale([1.8, 1, 1])
@@ -145,8 +148,15 @@ module 111_1009_end_modificator(){
         cube([rotor_blade_depth/2, 10, 2]);
 }
 
+module 111_1009_pipe_modificator(){
+
+    translate(blade_rod3_position - [0, 0, 0.5])
+        cylinder(d = 3, h = rotor_blade_length, $fn = 20);
+}
+
 %111_1009_modificator();
 %111_1009_end_modificator();
+%111_1009_pipe_modificator();
 
 
 module 111_1009_print(part = 1){

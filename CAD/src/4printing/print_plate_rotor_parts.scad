@@ -6,6 +6,9 @@ use <../111_1008.scad>
 
 use <../lib/stdlib/shortcuts.scad>
 
+
+//@set_slicing_config(../../../slicing/filled_fine.ini)
+
 place_in_rect(35, 35) // arange that stuff in a grid
 {
     111_1008();
