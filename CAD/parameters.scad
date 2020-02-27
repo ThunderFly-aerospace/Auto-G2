@@ -10,7 +10,6 @@ main_tube_inner_diameter = 23.05;
 // Nastavení parametrů rotoru
 
 gliding_aggle = 14;         // tenhle úhel by se zřejmě v budoucnu měl počítat z požadované klouzavosti.
-
 rotor_blade_AOA = 3.5;      // nastavení úhlu náběhu rotorového listu
 
 // Rotor Auto-G2
@@ -32,11 +31,6 @@ rotor_blades_count = 2;
 rotor_delta_angle = 12;
 rotor_blade_thickness = 5.1;
 
-rotor_blade_naca = 2414;
-rotor_blade_naca = 0013;
-rotor_blade_parts_count = 3;
-
-blade_transition_length = 10; // length of blade transition
 
 blade_mount_screw_distance = (16.47+11.86)/2;
 
@@ -50,15 +44,51 @@ blade_infill_overlap = 0; */
 blade_shell_thickness = 0.6;
 blade_shell_thickness_inner = 0.15;
 blade_shell_thickness_wire = 0.55;
-blade_infill_distance = 30;
+blade_infill_distance = 33;
 blade_infill_overlap = 0;
 
 
-//blade_rod_position = [rotor_blade_depth/4 + 5, 0, 0];
-//blade_rod_position2 = [rotor_blade_depth/4 - 5, 0, 0];
+// SYMETRICKY PROFIL NACA0013, Uhlik, Mosaz
 
-//blade_rod_position = [15, 0, 0];
-//blade_rod_position2 = [4, 0.3, 0];
+/*
+    blade_transition_length = 10; // length of blade transition
+
+    rotor_blade_naca = 2414;
+    rotor_blade_naca = 0013;
+    rotor_blade_parts_count = 3;
+
+    blade_rod1_diameter = 2.58;
+    blade_rod2_diameter = 2.5;
+    blade_rod3_diameter = 2.5;
+
+    blade_rod1_position = [3.65, 0, 0];
+    blade_rod2_position = [rotor_blade_depth/4 - 7, 0, 0];
+    blade_rod3_position = [rotor_blade_depth/4 + 3, 0, 0];
+*/
+
+
+// SYMETRICKY PROFIL NACA0013, Uhlik, Mosaz - Uprava tisku s rozdelenym korenem
+    blade_transition_length = 5; // length of blade transition
+
+    rotor_blade_naca = 0013;
+    rotor_blade_parts_count = 3;
+
+    blade_rod1_diameter = 2.58;
+    blade_rod2_diameter = 2.5;
+    blade_rod3_diameter = 2.5;
+
+    blade_rod1_position = [3.65, 0, 0];
+    blade_rod2_position = [rotor_blade_depth/4 - 7, 0, 0];
+    blade_rod3_position = [rotor_blade_depth/4 + 3, 0, 0];
+
+
+
+// SYMETRICKY PROFIL NACA2414, Uhlik, Mosaz
+/*
+blade_transition_length = 10; // length of blade transition
+
+rotor_blade_naca = 2414;
+rotor_blade_parts_count = 3;
 
 blade_rod1_diameter = 2.58;
 blade_rod2_diameter = 2.5;
@@ -67,7 +97,7 @@ blade_rod3_diameter = 2.5;
 blade_rod1_position = [3.65, 0, 0];
 blade_rod2_position = [rotor_blade_depth/4 - 7, 0, 0];
 blade_rod3_position = [rotor_blade_depth/4 + 3, 0, 0];
-
+*/
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
 pilon_wall_thickness = 4.2;  // Rozměr 2 v nákresu

@@ -32,7 +32,7 @@ module blade_infill(){
                  for (i=[10 : blade_infill_distance : rotor_blade_length + rotor_blade_depth]) {
                     translate([rotor_blade_depth/4, -10, i])
                         rotate([0, -30, 0])
-                            cube([rotor_blade_depth/3-3, 20, blade_shell_thickness_inner]);
+                            cube([rotor_blade_depth/3 + 3, 20, blade_shell_thickness_inner]);
 
                     //translate([rotor_blade_depth/4, -10, i])
                     //    rotate([0, 90+30, 0])
@@ -40,7 +40,7 @@ module blade_infill(){
 
                     translate([rotor_blade_depth/4, -10, i + blade_infill_distance/2])
                         rotate([0, -30, 0])
-                            cube([rotor_blade_depth/3*2-3, 20, blade_shell_thickness_inner]);
+                            cube([rotor_blade_depth/3*2, 20, blade_shell_thickness_inner]);
                 }
 
 
@@ -184,9 +184,7 @@ module 111_1009_print(part = 1){
     translate([0, 0, -bottom])
     intersection(){
 
-
         111_1009();
-
 
         translate([0, -25, bottom])
             cube([rotor_blade_depth, 50, part_height]);
