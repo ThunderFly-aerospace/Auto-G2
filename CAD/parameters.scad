@@ -16,7 +16,7 @@ rotor_blade_AOA = 3.5;      // nastavení úhlu náběhu rotorového listu
 // Rotor Auto-G2
 rotor_blade_rod = true;  // generovat diru pro uhlikove tycky
 rotor_blade_length = 400;   // délka rotorového listu
-rotor_blade_depth = 48;     // hloubka rotorového listu
+rotor_blade_depth = 50;     // hloubka rotorového listu
 rotor_balde_tip_cutoff = 15; // delka sikme plochy na konci listu
 
 blade_mount_length = 30;
@@ -33,6 +33,7 @@ rotor_delta_angle = 12;
 rotor_blade_thickness = 5.1;
 
 rotor_blade_naca = 2414;
+rotor_blade_naca = 0013;
 rotor_blade_parts_count = 3;
 
 blade_transition_length = 10; // length of blade transition
@@ -64,8 +65,8 @@ blade_rod2_diameter = 2.5;
 blade_rod3_diameter = 2.5;
 
 blade_rod1_position = [3.65, 0, 0];
-blade_rod2_position = [rotor_blade_depth/4 - 5, 0, 0];
-blade_rod3_position = [rotor_blade_depth/4 + 5, 0, 0];
+blade_rod2_position = [rotor_blade_depth/4 - 7, 0, 0];
+blade_rod3_position = [rotor_blade_depth/4 + 3, 0, 0];
 
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
