@@ -20,9 +20,9 @@ rotor_balde_tip_cutoff = 15; // delka sikme plochy na konci listu
 
 blade_mount_length = 30;
 
-blade_mount_width = 17;
-blade_mount_offset = 0/2;
-blade_mount_thickness = 4.6;
+blade_mount_width = 17+3;
+blade_mount_offset = 3/2;
+blade_mount_thickness = 5.5;
 blade_mount_screw_offset = 5; // distance of first screw from rotor end
 
 
@@ -41,8 +41,8 @@ blade_infill_distance = 25;
 blade_infill_overlap = 0; */
 
 /// Nastaveni pro Slic3r
-blade_shell_thickness = 0.6;
-blade_shell_thickness_inner = 0.15;
+blade_shell_thickness = 0.55;
+blade_shell_thickness_inner = 0.10;
 blade_shell_thickness_wire = 0.55;
 blade_infill_distance = 33;
 blade_infill_overlap = 0;
@@ -64,6 +64,7 @@ blade_infill_overlap = 0;
     blade_rod1_position = [3.65, 0, 0];
     blade_rod2_position = [rotor_blade_depth/4 - 7, 0, 0];
     blade_rod3_position = [rotor_blade_depth/4 + 3, 0, 0];
+    blade_divisions = [0, rotor_blade_length/3, rotor_blade_length/3*2, rotor_blade_length];
 */
 
 
@@ -78,8 +79,11 @@ blade_infill_overlap = 0;
     blade_rod3_diameter = 2.5;
 
     blade_rod1_position = [3.65, 0, 0];
-    blade_rod2_position = [rotor_blade_depth/4 - 7, 0, 0];
+    blade_rod2_position = [rotor_blade_depth/4 - 8, 0, 0];
     blade_rod3_position = [rotor_blade_depth/4 + 3, 0, 0];
+
+    length = rotor_blade_length - (blade_mount_length);
+    blade_divisions = [0, length/3, length/3*2, length, rotor_blade_length];
 
 
 
