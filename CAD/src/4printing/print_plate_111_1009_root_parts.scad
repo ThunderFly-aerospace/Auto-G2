@@ -22,6 +22,6 @@ difference(){
                 111_1009_print(3);
     }
 
-    translate([-100, -100, 0])
+    translate([-100, -100, -200])
         cube(200);
 }

@@ -117,7 +117,7 @@ module 111_1009(){
             translate(blade_rod3_position - [0, 0, 0.5])
                 cylinder(d = blade_rod3_diameter, h = rotor_blade_length + 1, $fn = 50);
 
-            translate((blade_rod2_position+blade_rod3_position)/2 + [0, 0, rotor_blade_length -13.5])
+            translate((blade_rod2_position+blade_rod3_position)/2 + [0, 0, rotor_blade_length -25])
             difference(){
                 //#sphere(10);
                 rotate([90, 0, 0])
