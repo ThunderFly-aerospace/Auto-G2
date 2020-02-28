@@ -82,7 +82,7 @@ blade_infill_overlap = 0;
     blade_rod2_position = [rotor_blade_depth/4 - 8, 0, 0];
     blade_rod3_position = [rotor_blade_depth/4 + 3, 0, 0];
 
-    length = rotor_blade_length - (blade_mount_length);
+    length = rotor_blade_length - (blade_mount_length)+1;
     blade_divisions = [0, length/3, length/3*2, length, rotor_blade_length];
 
 

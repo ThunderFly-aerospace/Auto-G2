@@ -116,6 +116,19 @@ module 111_1009(){
                 cylinder(d = blade_rod2_diameter, h = rotor_blade_length + 1, $fn = 50);
             translate(blade_rod3_position - [0, 0, 0.5])
                 cylinder(d = blade_rod3_diameter, h = rotor_blade_length + 1, $fn = 50);
+
+            translate((blade_rod2_position+blade_rod3_position)/2 + [0, 0, rotor_blade_length -13.5])
+            difference(){
+                //#sphere(10);
+                rotate([90, 0, 0])
+                    rotate_extrude()
+                        translate([(blade_rod2_position[0]-blade_rod3_position[0])/2, 0, 0])
+                            circle(d = blade_rod2_diameter, $fn = 70);
+                        //cylinder(d = blade_rod2_diameter, h=1, center=true);
+
+                translate([-10, -10, -20])
+                    cube(20);
+            }
         }
 
         for(i = [40:40:rotor_blade_length-20])
