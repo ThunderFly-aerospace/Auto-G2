@@ -84,6 +84,7 @@ blade_infill_overlap = 0;
 
     length = rotor_blade_length - (blade_mount_length)+1;
     blade_divisions = [0, length/3, length/3*2, length, rotor_blade_length];
+    blade_divisions = [0, rotor_blade_length/3, rotor_blade_length/3*2, rotor_blade_length];
 
 
 

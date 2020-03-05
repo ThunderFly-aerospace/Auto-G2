@@ -1,18 +1,18 @@
 //// ThunderFly Auto-G2 3D printable Rotor blade
 /// Rotor blade
 
-//@set_slicing_config(../../slicing/blades/blade.ini)
+//@set_slicing_config(../slicing/blades/blade.ini)
 
 //@set_modificator(111_1009_modificator)
-//@set_slicing_config(../../slicing/blades/infill_modif.ini, 111_1009_modificator)
+//@set_slicing_config(../slicing/blades/infill_modif.ini, 111_1009_modificator)
 
 //@set_modificator(111_1009_pipe_modificator)
-//@set_slicing_config(../../slicing/blades/pipe_modif.ini, 111_1009_pipe_modificator)
+//@set_slicing_config(../slicing/blades/pipe_modif.ini, 111_1009_pipe_modificator)
 
 draft = true;
 
 include <../parameters.scad>
-use <../lib/naca4.scad>
+use <lib/stdlib/naca4.scad>
 
 rotor_blade_depth_naca_resolution = draft ? 50 : 100;
 
@@ -191,15 +191,14 @@ module 111_1009_pipe_modificator(){
     for(i = [40:40:rotor_blade_length-15])
         translate(blade_rod3_position - [0, 0, 20 - i])
             rotate([90, 0, 0])
-                cylinder(d = 1.9, h = 20, $fn = 50, center = true);
+                cylinder(d = 1.9, h = 10, $fn = 50, center = true);
 }
 
 %111_1009_modificator();
-%111_1009_end_modificator();
 %111_1009_pipe_modificator();
 
 
-module 111_1009_print(part = 1, rotate = False){
+module 111_1009_print(part = 1, rotate = false){
     height = rotor_blade_length;
     part_height = blade_divisions[part+1] - blade_divisions[part];
     bottom = blade_divisions[part];
