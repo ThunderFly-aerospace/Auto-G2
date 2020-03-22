@@ -2,6 +2,7 @@
 
 /// Rotor blade
 
+//@set_slicing_config(../slicing/blades/blade.ini)
 
 //@set_modificator(111_1009_modificator)
 //@set_slicing_config(../slicing/blades/infill_modif.ini, 111_1009_modificator)

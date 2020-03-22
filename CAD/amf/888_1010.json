@@ -1,0 +1,31 @@
+{
+    "cog": {
+        "gcode": {
+            "X": 94.41844746864442,
+            "Y": 98.24450561161372,
+            "Z": 5.664102635635554
+        },
+        "model": {
+            "X": 46.355947468644416,
+            "Y": 38.18200561161372,
+            "Z": 0.7891026356355537
+        },
+        "slicer_translation": {
+            "X": 48.0625,
+            "Y": 60.0625,
+            "Z": 4.875
+        },
+        "model_method": null
+    },
+    "material": {
+        "extrudate": 639.6548300000012,
+        "volume": 7.0685834705770345,
+        "mass": 0.0
+    },
+    "files": {
+        "scad": "/home/roman/rep/tf/Auto-G2/CAD/src/888_1010.scad",
+        "amf": "/home/roman/rep/tf/Auto-G2/CAD/amf/888_1010.amf",
+        "stl": "/home/roman/rep/tf/Auto-G2/CAD/stl/888_1010.stl",
+        "gcode": "/home/roman/rep/tf/Auto-G2/CAD/gcode/888_1010.gcode"
+    }
+}
