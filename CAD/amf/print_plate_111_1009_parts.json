@@ -1,0 +1,31 @@
+{
+    "cog": {
+        "gcode": {
+            "X": 74.8635566171705,
+            "Y": 74.86504025558044,
+            "Z": 64.10838727396643
+        },
+        "model": {
+            "X": 72.7065566171705,
+            "Y": -14.634959744419561,
+            "Z": 130.74138727396644
+        },
+        "slicer_translation": {
+            "X": 2.1569999999999965,
+            "Y": 89.5,
+            "Z": -66.633
+        },
+        "model_method": null
+    },
+    "material": {
+        "extrudate": 30884.38661999933,
+        "volume": 2.405281875404685,
+        "mass": 2.9825495255018097
+    },
+    "files": {
+        "scad": "/home/roman/rep/tf/Auto-G2/CAD/src/4printing/print_plate_111_1009_parts.scad",
+        "amf": "/home/roman/rep/tf/Auto-G2/CAD/amf/print_plate_111_1009_parts.amf",
+        "stl": "/home/roman/rep/tf/Auto-G2/CAD/stl/print_plate_111_1009_parts.stl",
+        "gcode": "/home/roman/rep/tf/Auto-G2/CAD/gcode/print_plate_111_1009_parts.gcode"
+    }
+}

@@ -1,6 +1,5 @@
 
 global_clearance = 0.5;
-
 layer_thickness = 0.3;
 
 //Main tube diameter - hole [mm]
@@ -16,7 +15,7 @@ rotor_blade_AOA = 3.5;      // nastavení úhlu náběhu rotorového listu
 // Rotor Auto-G2
 rotor_blade_rod = true;  // generovat diru pro uhlikove tycky
 rotor_blade_length = 400;   // délka rotorového listu
-rotor_blade_depth = 45.5;     // hloubka rotorového listu
+rotor_blade_depth = 52;     // hloubka rotorového listu
 rotor_balde_tip_cutoff = 15; // delka sikme plochy na konci listu
 
 blade_mount_length = 30;
@@ -43,7 +42,8 @@ rotor_blades_count = 2;
 rotor_delta_angle = 12;
 rotor_blade_thickness = 5.1;
 
-rotor_blade_naca = 0013;
+rotor_blade_naca = 0015;
+//rotor_blade_naca = 1214;
 rotor_blade_parts_count = 3;
 
 blade_transition_length = 10; // length of blade transition
@@ -58,7 +58,7 @@ blade_infill_overlap = 0; */
 
 /// Nastaveni pro Slic3r
 blade_shell_thickness = 0.6;
-blade_shell_thickness_inner = 0.15;
+blade_shell_thickness_inner = 0.13;
 blade_shell_thickness_wire = 0.55;
 blade_infill_distance = 30;
 blade_infill_overlap = 0;
@@ -70,14 +70,18 @@ blade_infill_overlap = 0;
 //blade_rod_position = [15, 0, 0];
 //blade_rod_position2 = [4, 0.3, 0];
 
-blade_rod1_diameter = 2.58;
+blade_rod1_diameter = 0.2;
 blade_rod2_diameter = 2.58;
 blade_rod3_diameter = 2.13;
 
-blade_rod1_position = [3.65, 0, 0];
-blade_rod2_position = [rotor_blade_depth/4 - 6.5, 0, 0];
-blade_rod3_position = [rotor_blade_depth/4 + 5, 0, 0];
+blade_rod2_diameter = 2.58;
+blade_rod3_diameter = 2.58;
 
+blade_rod1_position = [3.65, 0, 0];
+blade_rod2_position = [rotor_blade_depth/4 - 4, 0, 0];
+blade_rod3_position = [rotor_blade_depth/4 + 4, 0, 0];
+
+rod_from_end = 9;
 
 rotor_head_width =  21.4;    //Rozměr 1 v nákresu
 pilon_wall_thickness = 4.2;  // Rozměr 2 v nákresu
